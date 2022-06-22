@@ -1,3 +1,4 @@
+import 'package:bestie_vibes/config/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:bestie_vibes/pages/account_page.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Supabase Flutter',
+      title: 'Bestie Vibes',
       theme: ThemeData.light().copyWith(
         primaryColor: Color.fromARGB(255, 125, 194, 247),
         elevatedButtonTheme: ElevatedButtonThemeData(
@@ -31,12 +32,13 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      initialRoute: '/',
-      routes: <String, WidgetBuilder>{
-        '/': (_) => const SplashPage(),
-        '/login': (_) => const LoginPage(),
-        '/account': (_) => const AccountPage(),
-      },
+      onGenerateRoute: AppRouter.onGenerateRoute,
+      initialRoute: LoginPage.routeName,
+      // routes: <String, WidgetBuilder>{
+      //   '/': (_) => const SplashPage(),
+      //   '/login': (_) => const LoginPage(),
+      //   '/account': (_) => const AccountPage(),
+      // },
     );
   }
 }
