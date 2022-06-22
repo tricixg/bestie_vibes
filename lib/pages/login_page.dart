@@ -5,7 +5,16 @@ import 'package:bestie_vibes/components/auth_state.dart';
 import 'package:bestie_vibes/utils/constants.dart';
 
 class LoginPage extends StatefulWidget {
+  static const String routeName = '/login';
   const LoginPage({Key? key}) : super(key: key);
+
+
+ static Route route() {
+    return MaterialPageRoute(
+      builder: (_) => LoginPage(),
+      settings: RouteSettings(name: routeName),
+    );
+  }
 
   @override
   _LoginPageState createState() => _LoginPageState();

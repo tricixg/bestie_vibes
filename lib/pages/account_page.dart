@@ -4,7 +4,15 @@ import 'package:bestie_vibes/components/auth_required_state.dart';
 import 'package:bestie_vibes/utils/constants.dart';
 
 class AccountPage extends StatefulWidget {
+  static const String routeName = '/account';
   const AccountPage({Key? key}) : super(key: key);
+
+ static Route route() {
+    return MaterialPageRoute(
+      builder: (_) => AccountPage(),
+      settings: RouteSettings(name: routeName),
+    );
+  }
 
   @override
   _AccountPageState createState() => _AccountPageState();
