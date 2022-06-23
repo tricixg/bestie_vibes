@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Bestie Vibes',
+      //hello
       theme: theme(),
       onGenerateRoute: AppRouter.onGenerateRoute,
       initialRoute: HomePage.routeName,
