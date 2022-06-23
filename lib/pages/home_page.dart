@@ -170,7 +170,7 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
       actions: [
         IconButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/account');
+              Navigator.pushNamed(context, '/profile');
             },
             icon: Icon(Icons.person, color: Colors.pink[200]))
       ],
