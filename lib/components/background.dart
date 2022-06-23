@@ -21,15 +21,7 @@ class Background extends StatelessWidget {
             top: 0,
             right: 0,
             child: Image.asset(
-              "lib/assets/images/top1.png",
-              width: size.width
-            ),
-          ),
-          Positioned(
-            top: 0,
-            right: 0,
-            child: Image.asset(
-              "lib/assets/images/top2.png",
+              "lib/assets/images/top.png",
               width: size.width
             ),
           ),
@@ -45,15 +37,7 @@ class Background extends StatelessWidget {
             bottom: 0,
             right: 0,
             child: Image.asset(
-              "lib/assets/images/bottom1.png",
-              width: size.width
-            ),
-          ),
-          Positioned(
-            bottom: 0,
-            right: 0,
-            child: Image.asset(
-              "lib/assets/images/bottom2.png",
+              "lib/assets/images/bottom.png",
               width: size.width
             ),
           ),

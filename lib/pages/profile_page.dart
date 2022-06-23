@@ -4,22 +4,22 @@ import 'package:bestie_vibes/components/auth_required_state.dart';
 import 'package:bestie_vibes/components/avatar.dart';
 import 'package:bestie_vibes/utils/constants.dart';
 
-class AccountPage extends StatefulWidget {
-  static const String routeName = '/account';
-  const AccountPage({Key? key}) : super(key: key);
+class ProfilePage extends StatefulWidget {
+  static const String routeName = '/profile';
+  const ProfilePage({Key? key}) : super(key: key);
 
  static Route route() {
     return MaterialPageRoute(
-      builder: (_) => AccountPage(),
+      builder: (_) => ProfilePage(),
       settings: RouteSettings(name: routeName),
     );
   }
 
   @override
-  _AccountPageState createState() => _AccountPageState();
+  _ProfilePageState createState() => _ProfilePageState();
 }
 
-class _AccountPageState extends AuthRequiredState<AccountPage> {
+class _ProfilePageState extends AuthRequiredState<ProfilePage> {
   final _usernameController = TextEditingController();
   final _favouritecolourController = TextEditingController();
   String? _userId;

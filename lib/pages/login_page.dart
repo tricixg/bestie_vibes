@@ -76,7 +76,7 @@ class _LoginPageState extends AuthState<LoginPage> {
                 "LOGIN",
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF2661FA),
+                    color: Color.fromARGB(255,49, 49, 49),
                     fontSize: 36),
                 textAlign: TextAlign.left,
               ),
@@ -113,8 +113,8 @@ class _LoginPageState extends AuthState<LoginPage> {
                   decoration: new BoxDecoration(
                       borderRadius: BorderRadius.circular(80.0),
                       gradient: new LinearGradient(colors: [
-                        Color.fromARGB(255, 181, 156, 255),
-                        Color.fromARGB(255, 41, 112, 255)
+                        Color.fromARGB(255, 255, 193, 198),
+                        Color.fromARGB(255, 254, 143, 152)
                       ])),
                   padding: const EdgeInsets.all(0),
                   child: Text(_isLoading ? 'Loading' : 'Send Magic Link'),

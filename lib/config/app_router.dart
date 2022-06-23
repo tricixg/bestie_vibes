@@ -1,5 +1,6 @@
-import 'package:bestie_vibes/pages/account_page.dart';
+import 'package:bestie_vibes/pages/home_page.dart';
 import 'package:bestie_vibes/pages/login_page.dart';
+import 'package:bestie_vibes/pages/profile_page.dart';
 import 'package:bestie_vibes/pages/splash_page.dart';
 import 'package:flutter/material.dart';
 
@@ -12,10 +13,10 @@ class AppRouter {
         return LoginPage.route();
       case LoginPage.routeName:
         return LoginPage.route();
-      case SplashPage.routeName:
-        return SplashPage.route();        
-      case AccountPage.routeName:
-        return AccountPage.route();
+      case HomePage.routeName:
+        return HomePage.route();        
+      case ProfilePage.routeName:
+        return ProfilePage.route();
       default:
         return _errorRoute();
     }
