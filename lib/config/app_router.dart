@@ -1,4 +1,3 @@
-import 'package:bestie_vibes/pages/account_page.dart';
 import 'package:bestie_vibes/pages/home_page.dart';
 import 'package:bestie_vibes/pages/login_page.dart';
 import 'package:bestie_vibes/pages/profile_page.dart';
@@ -16,8 +15,6 @@ class AppRouter {
         return LoginPage.route();
       case HomePage.routeName:
         return HomePage.route();        
-      case AccountPage.routeName:
-        return AccountPage.route();
       case ProfilePage.routeName:
         return ProfilePage.route();
       default:

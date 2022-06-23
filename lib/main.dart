@@ -3,7 +3,6 @@ import 'package:bestie_vibes/pages/home_page.dart';
 import 'package:bestie_vibes/pages/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:bestie_vibes/pages/account_page.dart';
 import 'package:bestie_vibes/pages/login_page.dart';
 import 'package:bestie_vibes/pages/splash_page.dart';
 import 'config/theme.dart';
