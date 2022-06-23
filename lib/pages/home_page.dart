@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:bestie_vibes/components/auth_state.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -35,7 +33,7 @@ class _HomePageState extends AuthState<HomePage> {
   }
 }
 
-class UserCard extends StatefulWidget {
+class UserCard extends StatelessWidget {
   final Userr user;
 
   const UserCard({
@@ -86,12 +84,8 @@ class UserCard extends StatefulWidget {
         ));
   }
   
-  @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    throw UnimplementedError();
   }
-}
+
 
 class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
   const CustomAppBar({
