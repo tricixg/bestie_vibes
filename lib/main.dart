@@ -1,9 +1,12 @@
 import 'package:bestie_vibes/config/app_router.dart';
+import 'package:bestie_vibes/pages/home_page.dart';
+import 'package:bestie_vibes/pages/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:bestie_vibes/pages/account_page.dart';
 import 'package:bestie_vibes/pages/login_page.dart';
 import 'package:bestie_vibes/pages/splash_page.dart';
+import 'config/theme.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,17 +26,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Bestie Vibes',
-      theme: ThemeData.light().copyWith(
-        primaryColor: Color.fromARGB(255, 125, 194, 247),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            onPrimary: Colors.white,
-            primary: Color.fromARGB(255, 142, 126, 242),
-          ),
-        ),
-      ),
+      theme: theme(),
       onGenerateRoute: AppRouter.onGenerateRoute,
-      initialRoute: LoginPage.routeName,
+      initialRoute: HomePage.routeName,
       // routes: <String, WidgetBuilder>{
       //   '/': (_) => const SplashPage(),
       //   '/login': (_) => const LoginPage(),
