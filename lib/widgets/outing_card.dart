@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import '/models/models.dart';
 
 
-class UserCard extends StatelessWidget {
-  final Userr user;
+class OutingCard extends StatelessWidget {
+  final Outing outing;
 
-  const UserCard({Key? key, required this.user}) : super(key: key);
+  const OutingCard({Key? key, required this.outing}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class UserCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  '${user.name}',
+                  '${outing.name}',
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.headline2!.copyWith(
                   color: Colors.black,
@@ -44,7 +44,7 @@ class UserCard extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  '${user.address}',
+                  '${outing.address}',
                   style: Theme.of(context).textTheme.headline2!.copyWith(
                   color: Colors.black,
                   fontSize: 15,
@@ -52,7 +52,7 @@ class UserCard extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "${user.postal}",
+                  "${outing.postal}",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                   color: Colors.black,
@@ -60,7 +60,7 @@ class UserCard extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "${user.price}",
+                  "${outing.price}",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                   color: Colors.black,
@@ -68,42 +68,42 @@ class UserCard extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "${user.website}",
+                  "${outing.website}",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                   color: Colors.black,
                   fontSize: 10,
                   ),
                 ),Text(
-                  "${user.phone}",
+                  "${outing.phone}",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                   color: Colors.black,
                   fontSize: 10,
                   ),
                 ),Text(
-                  "${user.opening}",
+                  "${outing.opening}",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                   color: Colors.black,
                   fontSize: 10,
                   ),
                 ),Text(
-                  "${user.type}",
+                  "${outing.type}",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                   color: Colors.black,
                   fontSize: 10,
                   ),
                 ),Text(
-                  "${user.tags}",
+                  "${outing.tags}",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                   color: Colors.black,
                   fontSize: 10,
                   ),
                 ),Text(
-                  "${user.bio}",
+                  "${outing.bio}",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                   color: Colors.black,
@@ -126,7 +126,7 @@ class UserCard extends StatelessWidget {
             //                         left: 66,
             //                         top: 40,
             //                         child: Text(
-            //                         '${user.name}',
+            //                         '${outing.name}',
             //                         textAlign: TextAlign.center,
             //                         style: Theme.of(context).textTheme.headline2!.copyWith(
             //                             color: Colors.black,
@@ -138,7 +138,7 @@ class UserCard extends StatelessWidget {
             //                         left: 70,
             //                         top: 77,
             //                         child: Text(
-            //                         '${user.address}',
+            //                         '${outing.address}',
             //                         style: Theme.of(context).textTheme.headline2!.copyWith(
             //                             color: Colors.black,
             //                             fontSize: 15,
@@ -150,7 +150,7 @@ class UserCard extends StatelessWidget {
             //                         left: 70,
             //                         top: 134,
             //                         child: Text(
-            //                             "Completed by ${user.name}",
+            //                             "Completed by ${outing.name}",
             //                             textAlign: TextAlign.center,
             //                             style: TextStyle(
             //                                 color: Colors.black,
@@ -226,7 +226,7 @@ class UserCard extends StatelessWidget {
                                   decoration: BoxDecoration(
                                       image: DecorationImage(
                                             fit: BoxFit.cover,
-                                            image: NetworkImage(user.imageUrls[0])),
+                                            image: NetworkImage(outing.imageUrls[0])),
                                             borderRadius: BorderRadius.circular(10.0),
                                             boxShadow: [
                                               BoxShadow(color: Colors.grey.withOpacity(0.5))
@@ -246,7 +246,7 @@ class UserCard extends StatelessWidget {
               //       color: Color.fromARGB(255, 255, 205, 209),
               //       // image: DecorationImage(
               //       //     fit: BoxFit.cover,
-              //       //     image: NetworkImage(user.imageUrls[0])),
+              //       //     image: NetworkImage(outing.imageUrls[0])),
               //       borderRadius: BorderRadius.circular(5.0),
               //       boxShadow: [
               //         BoxShadow(
@@ -260,7 +260,7 @@ class UserCard extends StatelessWidget {
               //   decoration: BoxDecoration(
               //      image: DecorationImage(
               //            fit: BoxFit.cover,
-              //            image: NetworkImage(user.imageUrls[0])),
+              //            image: NetworkImage(outing.imageUrls[0])),
               //   ),
               // ),
               // Container(
@@ -284,20 +284,20 @@ class UserCard extends StatelessWidget {
               //     crossAxisAlignment: CrossAxisAlignment.start,
               //     children: [
               //       Text(
-              //         '${user.name}',
+              //         '${outing.name}',
               //         style: Theme.of(context).textTheme.headline2!.copyWith(
               //             color: Colors.white,
               //           ),
               //       ),
               //       Text(
-              //         '${user.address}',
+              //         '${outing.address}',
               //         style: Theme.of(context).textTheme.headline2!.copyWith(
               //             color: Colors.white,
               //             fontWeight: FontWeight.normal,
               //           ),
               //       ),
               //        Text(
-              //         '${user.address}',
+              //         '${outing.address}',
               //         style: Theme.of(context).textTheme.headline2!.copyWith(
               //             color: Colors.white,
               //             fontWeight: FontWeight.normal,

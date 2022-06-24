@@ -9,36 +9,36 @@ abstract class SwipeEvent extends Equatable {
 }
 
 class LoadUsersEvent extends SwipeEvent {
-  final List<Userr> users;
+  final List<Outing> outings;
 
   LoadUsersEvent({
-    required this.users,
+    required this.outings,
   });
 
   @override
-  List<Object?> get props => [users];
+  List<Object?> get props => [outings];
 }
 
 
 
 class SwipeLeftEvent extends SwipeEvent {
-  final Userr user;
+  final Outing outing;
 
   SwipeLeftEvent({
-    required this.user,
+    required this.outing,
   });
 
   @override
-  List<Object?> get props => [user];
+  List<Object?> get props => [outing];
 }
 
 class SwipeRightEvent extends SwipeEvent {
-  final Userr user;
+  final Outing outing;
 
   SwipeRightEvent({
-    required this.user,
+    required this.outing,
   });
 
   @override
-  List<Object?> get props => [user];
+  List<Object?> get props => [outing];
 }

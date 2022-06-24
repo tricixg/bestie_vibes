@@ -1,7 +1,7 @@
 import 'package:bestie_vibes/blocs/swipe/swipe_bloc.dart';
 import 'package:bestie_vibes/blocs/swipe/swipe_event.dart';
 import 'package:bestie_vibes/config/app_router.dart';
-import 'package:bestie_vibes/models/user_model.dart';
+import 'package:bestie_vibes/models/outing_model.dart';
 import 'package:bestie_vibes/pages/home_page.dart';
 import 'package:bestie_vibes/pages/profile_page.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return 
     MultiBlocProvider(providers: [
-      BlocProvider(create: (_) => SwipeBloc()..add(LoadUsersEvent(users: Userr.users)))
+      BlocProvider(create: (_) => SwipeBloc()..add(LoadUsersEvent(outings: Outing.outings)))
     ], child:  
     MaterialApp(
       title: 'Bestie Vibes',
