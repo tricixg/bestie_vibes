@@ -24,10 +24,9 @@ class SwipeBloc extends Bloc<SwipeEvent, SwipeState> {
     }
   }
   
-  Stream<SwipeState> _mapLoadUsersToState(
-    LoadUsersEvent event,
+  Stream<SwipeState> _mapLoadUsersToState(LoadUsersEvent event,
   ) async* {
-    yield SwipleLoaded(users: event.users);
+    yield SwipeLoaded(users: event.users);
   }
   
   Stream<SwipeState> _mapSwipeLeftToState(

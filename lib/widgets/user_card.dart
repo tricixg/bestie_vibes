@@ -29,123 +29,205 @@ class UserCard extends StatelessWidget {
     ),
     child: Stack(
         children:[
-            Positioned.fill(
-                child: Align(
-                    alignment: Alignment.bottomLeft,
-                    child: Container(
-                        width: 362,
-                        height: 201,
-                        child: Stack(
-                            children:[
-                                Positioned(
-                                    left: 66,
-                                    top: 40,
-                                    child: Text(
-                                    '${user.name}',
-                                    textAlign: TextAlign.center,
-                                    style: Theme.of(context).textTheme.headline2!.copyWith(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal,
-                                      ),
-                                  ),
-                                ),
-                                Positioned(
-                                    left: 70,
-                                    top: 77,
-                                    child: Text(
-                                    '${user.address}',
-                                    style: Theme.of(context).textTheme.headline2!.copyWith(
-                                        color: Colors.black,
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.normal,
-                                      ),
-                                  ),
-                                ),
-                                Positioned(
-                                    left: 70,
-                                    top: 134,
-                                    child: Text(
-                                        "Completed by ${user.name}",
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 15,
-                                        ),
-                                    ),
-                                ),
-                                Positioned(
-                                    left: 282,
-                                    top: 123,
-                                    child: Text(
-                                        "price",
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 25,
-                                        ),
-                                    ),
-                                ),
-                                Positioned(
-                                    left: 70,
-                                    top: 158,
-                                    child: Text(
-                                        "Liked by Tricia",
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 15,
-                                        ),
-                                    ),
-                                ),
-                                Positioned(
-                                    left: 41,
-                                    top: 77,
-                                    child: Container(
-                                        width: 22,
-                                        height: 28,
-                                        child: Icon(Icons.add_location_outlined, color: Colors.black,),
-                                    ),
-                                ),
-                                Positioned(
-                                    left: 44,
-                                    top: 134,
-                                    child: Container(
-                                        width: 22,
-                                        height: 28,
-                                        child: Icon(Icons.tag_faces_outlined, color: Colors.black,),
-                                    ),
-                                ),
-                                Positioned(
-                                    left: 44,
-                                    top: 158,
-                                    child: Container(
-                                        width: 22,
-                                        height: 28,
-                                        child: Icon(Icons.favorite, color: Colors.black,),
-                                    ),
-                                ),
-                            ],
-                        ),
-                    ),
+          Positioned(
+            bottom: 30,
+            left: 20,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  '${user.name}',
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.headline2!.copyWith(
+                  color: Colors.black,
+                  fontWeight: FontWeight.normal,
+                  ),
                 ),
+                Text(
+                  '${user.address}',
+                  style: Theme.of(context).textTheme.headline2!.copyWith(
+                  color: Colors.black,
+                  fontSize: 15,
+                  fontWeight: FontWeight.normal,
+                  ),
+                ),
+                Text(
+                  "${user.postal}",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 10,
+                  ),
+                ),
+                Text(
+                  "${user.price}",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 10,
+                  ),
+                ),
+                Text(
+                  "${user.website}",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 10,
+                  ),
+                ),Text(
+                  "${user.phone}",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 10,
+                  ),
+                ),Text(
+                  "${user.opening}",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 10,
+                  ),
+                ),Text(
+                  "${user.type}",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 10,
+                  ),
+                ),Text(
+                  "${user.tags}",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 10,
+                  ),
+                ),Text(
+                  "${user.bio}",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 10,
+                  ),
+                ),
+                
+              ],
+            )
             ),
+            // Positioned.fill(
+            //     child: Align(
+            //         alignment: Alignment.bottomLeft,
+            //         child: Container(
+            //             width: 362,
+            //             height: 201,
+            //             child: Stack(
+            //                 children:[
+            //                     Positioned(
+            //                         left: 66,
+            //                         top: 40,
+            //                         child: Text(
+            //                         '${user.name}',
+            //                         textAlign: TextAlign.center,
+            //                         style: Theme.of(context).textTheme.headline2!.copyWith(
+            //                             color: Colors.black,
+            //                             fontWeight: FontWeight.normal,
+            //                           ),
+            //                       ),
+            //                     ),
+            //                     Positioned(
+            //                         left: 70,
+            //                         top: 77,
+            //                         child: Text(
+            //                         '${user.address}',
+            //                         style: Theme.of(context).textTheme.headline2!.copyWith(
+            //                             color: Colors.black,
+            //                             fontSize: 15,
+            //                             fontWeight: FontWeight.normal,
+            //                           ),
+            //                       ),
+            //                     ),
+            //                     Positioned(
+            //                         left: 70,
+            //                         top: 134,
+            //                         child: Text(
+            //                             "Completed by ${user.name}",
+            //                             textAlign: TextAlign.center,
+            //                             style: TextStyle(
+            //                                 color: Colors.black,
+            //                                 fontSize: 15,
+            //                             ),
+            //                         ),
+            //                     ),
+            //                     Positioned(
+            //                         left: 282,
+            //                         top: 123,
+            //                         child: Text(
+            //                             "price",
+            //                             textAlign: TextAlign.center,
+            //                             style: TextStyle(
+            //                                 color: Colors.black,
+            //                                 fontSize: 10,
+            //                             ),
+            //                         ),
+            //                     ),
+            //                     Positioned(
+            //                         left: 70,
+            //                         top: 158,
+            //                         child: Text(
+            //                             "Liked by Tricia",
+            //                             textAlign: TextAlign.center,
+            //                             style: TextStyle(
+            //                                 color: Colors.black,
+            //                                 fontSize: 15,
+            //                             ),
+            //                         ),
+            //                     ),
+            //                     Positioned(
+            //                         left: 41,
+            //                         top: 77,
+            //                         child: Container(
+            //                             width: 22,
+            //                             height: 28,
+            //                             child: Icon(Icons.add_location_outlined, color: Colors.black,),
+            //                         ),
+            //                     ),
+            //                     Positioned(
+            //                         left: 44,
+            //                         top: 134,
+            //                         child: Container(
+            //                             width: 22,
+            //                             height: 28,
+            //                             child: Icon(Icons.tag_faces_outlined, color: Colors.black,),
+            //                         ),
+            //                     ),
+            //                     Positioned(
+            //                         left: 44,
+            //                         top: 158,
+            //                         child: Container(
+            //                             width: 22,
+            //                             height: 28,
+            //                             child: Icon(Icons.favorite, color: Colors.black,),
+            //                         ),
+            //                     ),
+            //                 ],
+            //             ),
+            //         ),
+            //     ),
+            // ),
             Positioned(
                 right: 10,
                 left: 10,
                 top: 10,
                 child: Container(
-                    width: 400,
-                    height: 470,
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height / 2,
                     padding: const EdgeInsets.only(left: 14, right: 14, top: 20, bottom: 20, ),
-                    child: //Stack(
-                        //children: [
-                            //Positioned.fill(
-                                /*child:*/ Container(
+                    child: Container(
                                   decoration: BoxDecoration(
                                       image: DecorationImage(
                                             fit: BoxFit.cover,
                                             image: NetworkImage(user.imageUrls[0])),
-                                            borderRadius: BorderRadius.circular(5.0),
+                                            borderRadius: BorderRadius.circular(10.0),
                                             boxShadow: [
                                               BoxShadow(color: Colors.grey.withOpacity(0.5))
                                             ]

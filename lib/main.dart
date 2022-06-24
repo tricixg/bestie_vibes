@@ -1,4 +1,5 @@
 import 'package:bestie_vibes/blocs/swipe/swipe_bloc.dart';
+import 'package:bestie_vibes/blocs/swipe/swipe_event.dart';
 import 'package:bestie_vibes/config/app_router.dart';
 import 'package:bestie_vibes/models/user_model.dart';
 import 'package:bestie_vibes/pages/home_page.dart';
@@ -8,6 +9,8 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:bestie_vibes/pages/login_page.dart';
 import 'package:bestie_vibes/pages/splash_page.dart';
 import 'config/theme.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,14 +30,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return 
     MultiBlocProvider(providers: [
-      BlocProvider(create: (_) => SwipeBloc()..add(LoadUsersEvent(users: Userr,users)))
+      BlocProvider(create: (_) => SwipeBloc()..add(LoadUsersEvent(users: Userr.users)))
     ], child:  
     MaterialApp(
       title: 'Bestie Vibes',
       //hello
       theme: theme(),
       onGenerateRoute: AppRouter.onGenerateRoute,
-      initialRoute: HomePage.routeName,
+      initialRoute: LoginPage.routeName,
       // routes: <String, WidgetBuilder>{
       //   '/': (_) => const SplashPage(),
       //   '/login': (_) => const LoginPage(),

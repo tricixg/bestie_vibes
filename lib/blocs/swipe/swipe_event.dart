@@ -8,21 +8,10 @@ abstract class SwipeEvent extends Equatable {
   List<Object?> get props => [];
 }
 
-class LoadUsers extends SwipeEvent {
-  final String userId;
+class LoadUsersEvent extends SwipeEvent {
+  final List<Userr> users;
 
-  LoadUsers({
-    required this.userId,
-  });
-
-  @override
-  List<Object?> get props => [userId];
-}
-
-class UpdateHome extends SwipeEvent {
-  final List<Userr>? users;
-
-  UpdateHome({
+  LoadUsersEvent({
     required this.users,
   });
 
@@ -30,10 +19,12 @@ class UpdateHome extends SwipeEvent {
   List<Object?> get props => [users];
 }
 
-class SwipeLeft extends SwipeEvent {
+
+
+class SwipeLeftEvent extends SwipeEvent {
   final Userr user;
 
-  SwipeLeft({
+  SwipeLeftEvent({
     required this.user,
   });
 
@@ -41,10 +32,10 @@ class SwipeLeft extends SwipeEvent {
   List<Object?> get props => [user];
 }
 
-class SwipeRight extends SwipeEvent {
+class SwipeRightEvent extends SwipeEvent {
   final Userr user;
 
-  SwipeRight({
+  SwipeRightEvent({
     required this.user,
   });
 
