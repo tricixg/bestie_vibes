@@ -1,1 +1,1 @@
-export 'outing_model.dart';
+export 'activity_model.dart';

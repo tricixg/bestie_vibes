@@ -11,7 +11,7 @@ import '/models/models.dart';
 class SwipeBloc extends Bloc<SwipeEvent, SwipeState> {
   SwipeBloc() : super(SwipeLoading());
 
-  @override 
+  @override
   Stream<SwipeState> mapEventToState(
     SwipeEvent event,
   ) async* {
@@ -25,32 +25,34 @@ class SwipeBloc extends Bloc<SwipeEvent, SwipeState> {
       yield* _mapSwipeRightToState(event, state);
     }
   }
-  
-  Stream<SwipeState> _mapLoadUsersToState(LoadUsersEvent event,
+
+  Stream<SwipeState> _mapLoadUsersToState(
+    LoadUsersEvent event,
   ) async* {
-    yield SwipeLoaded(outings: event.outings);
+    yield SwipeLoaded(activities: event.activities);
   }
-  
+
   Stream<SwipeState> _mapSwipeLeftToState(
     SwipeLeftEvent event,
     SwipeState state,
   ) async* {
     if (state is SwipeLoaded) {
       try {
-        yield SwipeLoaded(outings: List.from(state.outings)..remove(event.outing));
+        yield SwipeLoaded(
+            activities: List.from(state.activities)..remove(event.activity));
       } catch (_) {}
     }
   }
 
-   Stream<SwipeState> _mapSwipeRightToState(
+  Stream<SwipeState> _mapSwipeRightToState(
     SwipeRightEvent event,
     SwipeState state,
   ) async* {
     if (state is SwipeLoaded) {
       try {
-        yield SwipeLoaded(outings: List.from(state.outings)..remove(event.outing));
+        yield SwipeLoaded(
+            activities: List.from(state.activities)..remove(event.activity));
       } catch (_) {}
     }
   }
-
 }

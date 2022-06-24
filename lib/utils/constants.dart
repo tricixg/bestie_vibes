@@ -6,7 +6,7 @@ final supabase = Supabase.instance.client;
 extension ShowSnackBar on BuildContext {
   void showSnackBar({
     required String message,
-    Color backgroundColor = Colors.pink,
+    Color backgroundColor = Colors.lightGreenAccent,
   }) {
     ScaffoldMessenger.of(this).showSnackBar(SnackBar(
       content: Text(message),
@@ -15,6 +15,6 @@ extension ShowSnackBar on BuildContext {
   }
 
   void showErrorSnackBar({required String message}) {
-    showSnackBar(message: message, backgroundColor: Colors.red);
+    showSnackBar(message: message, backgroundColor: Colors.redAccent);
   }
 }
