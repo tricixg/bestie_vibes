@@ -1,4 +1,6 @@
+import 'package:bestie_vibes/blocs/swipe/swipe_bloc.dart';
 import 'package:bestie_vibes/config/app_router.dart';
+import 'package:bestie_vibes/models/user_model.dart';
 import 'package:bestie_vibes/pages/home_page.dart';
 import 'package:bestie_vibes/pages/profile_page.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +25,11 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return 
+    MultiBlocProvider(providers: [
+      BlocProvider(create: (_) => SwipeBloc()..add(LoadUsersEvent(users: Userr,users)))
+    ], child:  
+    MaterialApp(
       title: 'Bestie Vibes',
       //hello
       theme: theme(),
@@ -34,6 +40,7 @@ class MyApp extends StatelessWidget {
       //   '/login': (_) => const LoginPage(),
       //   '/account': (_) => const AccountPage(),
       // },
+    ),
     );
   }
 }

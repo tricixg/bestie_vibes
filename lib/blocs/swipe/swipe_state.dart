@@ -1,4 +1,6 @@
-part of 'swipe_bloc.dart';
+import 'package:bestie_vibes/models/models.dart';
+import 'package:equatable/equatable.dart';
+
 
 abstract class SwipeState extends Equatable {
   const SwipeState();
@@ -10,7 +12,7 @@ abstract class SwipeState extends Equatable {
 class SwipeLoading extends SwipeState {}
 
 class SwipeLoaded extends SwipeState {
-  final List<User> users;
+  final List<Userr> users;
 
   SwipeLoaded({
     required this.users,

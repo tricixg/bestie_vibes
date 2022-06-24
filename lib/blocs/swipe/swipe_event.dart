@@ -1,4 +1,5 @@
-part of 'swipe_bloc.dart';
+import 'package:equatable/equatable.dart';
+import 'package:bestie_vibes/models/models.dart';
 
 abstract class SwipeEvent extends Equatable {
   const SwipeEvent();
@@ -19,7 +20,7 @@ class LoadUsers extends SwipeEvent {
 }
 
 class UpdateHome extends SwipeEvent {
-  final List<User>? users;
+  final List<Userr>? users;
 
   UpdateHome({
     required this.users,
@@ -30,7 +31,7 @@ class UpdateHome extends SwipeEvent {
 }
 
 class SwipeLeft extends SwipeEvent {
-  final User user;
+  final Userr user;
 
   SwipeLeft({
     required this.user,
@@ -41,7 +42,7 @@ class SwipeLeft extends SwipeEvent {
 }
 
 class SwipeRight extends SwipeEvent {
-  final User user;
+  final Userr user;
 
   SwipeRight({
     required this.user,

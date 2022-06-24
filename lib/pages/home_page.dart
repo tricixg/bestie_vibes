@@ -29,10 +29,15 @@ class _HomePageState extends AuthState<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: CustomAppBar(),
-        body: Column(
-          children: [
-            Draggable(
+      appBar: CustomAppBar(),
+      body: BlocBuilder<SwipeBloc, SwipeState>(builder: (context, state) {
+        if (state is SwipeLoading) {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        } else if (state is SwipeLoaded) {
+          return Column(
+            children: [            Draggable(
               child: UserCard(user: Userr.users[0]),
               feedback: UserCard(user: Userr.users[0]),
               childWhenDragging: UserCard(user: Userr.users[1]),
@@ -77,8 +82,14 @@ class _HomePageState extends AuthState<HomePage> {
                       icon: Icons.watch_later,
                     ),
                   ],
-                ))
-          ],
-        ));
+                ))],
+          );
+        }
+        return Column(
+          children: [],
+        );
+      },
+      ),
+    );
   }
 }
