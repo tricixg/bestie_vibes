@@ -2,7 +2,7 @@ import 'dart:ffi';
 
 import 'package:equatable/equatable.dart';
 
-class Userr extends Equatable {
+class Outing extends Equatable {
   final String? id;
   final String name;
   final int phone;
@@ -16,7 +16,7 @@ class Userr extends Equatable {
   final int postal;
   final String website;
 
-  const Userr({
+  const Outing({
     this.id,
     required this.name,
     required this.phone,
@@ -31,8 +31,8 @@ class Userr extends Equatable {
     required this.website,
   });
 
-  static List<Userr> users = [
-    const Userr(
+  static List<Outing> outings = [
+    const Outing(
         id: '1',
         name: 'Crafting',
         phone: 98323325,
@@ -49,7 +49,7 @@ class Userr extends Equatable {
         type: 'activity',
         website: 'www.hello.com',
         ),
-    const Userr(
+    const Outing(
         id: '2',
         name: 'climbing',
         phone: 99325232,
@@ -66,7 +66,7 @@ class Userr extends Equatable {
         type: 'activity',
         website: 'www.hello.com',
 ),
-    const Userr(
+    const Outing(
         id: '3',
         name: 'din tai fung',
         phone: 99334232,
@@ -83,7 +83,7 @@ class Userr extends Equatable {
         type: 'food',
         website: 'www.hello.com',
         ),
-    const Userr(
+    const Outing(
         id: '4',
         name: 'din tai fung',
         phone: 99334232,
@@ -99,7 +99,7 @@ class Userr extends Equatable {
         price: 2,
         type: 'food',        
         website: 'www.hello.com',),
-    const Userr(
+    const Outing(
         id: '5',
         name: 'din tai fung',
         phone: 99334232,
@@ -115,7 +115,7 @@ class Userr extends Equatable {
         price: 2,
         type: 'food',
         website: 'www.hello.com',),
-            const Userr(
+            const Outing(
         id: '6',
         name: 'din tai fung',
         phone: 99334232,
@@ -131,7 +131,7 @@ class Userr extends Equatable {
         price: 2,
         type: 'food',
         website: 'www.hello.com',),
-            const Userr(
+            const Outing(
         id: '7',
         name: 'din tai fung',
         phone: 99334232,
@@ -147,7 +147,7 @@ class Userr extends Equatable {
         price: 2,
         type: 'food',
         website: 'www.hello.com',),
-            const Userr(
+            const Outing(
         id: '8',
         name: 'din tai fung',
         phone: 99334232,
@@ -163,7 +163,7 @@ class Userr extends Equatable {
         price: 2,
         type: 'food',
         website: 'www.hello.com',),
-            const Userr(
+            const Outing(
         id: '9',
         name: 'din tai fung',
         phone: 99334232,
@@ -179,7 +179,7 @@ class Userr extends Equatable {
         price: 2,
         type: 'food',
         website: 'www.hello.com',),
-            const Userr(
+            const Outing(
         id: '10',
         name: 'din tai fung',
         phone: 99334232,
@@ -195,7 +195,7 @@ class Userr extends Equatable {
         price: 2,
         type: 'food',
         website: 'www.hello.com',),
-            const Userr(
+            const Outing(
         id: '11',
         name: 'din tai fung',
         phone: 99334232,
@@ -211,7 +211,7 @@ class Userr extends Equatable {
         price: 2,
         type: 'food',
         website: 'www.hello.com',),
-            const Userr(
+            const Outing(
         id: '12',
         name: 'din tai fung',
         phone: 99334232,

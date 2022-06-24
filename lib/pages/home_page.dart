@@ -46,17 +46,17 @@ class _HomePageState extends AuthRequiredState<HomePage> {
             return Column(
               children: [
                 Draggable(
-                  child: UserCard(user: state.users[0]),
-                  feedback: UserCard(user: state.users[0]),
-                  childWhenDragging: UserCard(user: state.users[1]),
+                  child: OutingCard(outing: state.outings[0]),
+                  feedback: OutingCard(outing: state.outings[0]),
+                  childWhenDragging: OutingCard(outing: state.outings[1]),
                   onDragEnd: (drag) {
                     if (drag.velocity.pixelsPerSecond.dx < 0) {
                       context.read<SwipeBloc>()
-                        ..add(SwipeLeftEvent(user: state.users[0]));
+                        ..add(SwipeLeftEvent(outing: state.outings[0]));
                       print('swipe left');
                     } else {
                       context.read<SwipeBloc>()
-                        ..add(SwipeRightEvent(user: state.users[0]));
+                        ..add(SwipeRightEvent(outing: state.outings[0]));
                       print('swipe right');
                     }
                   },
@@ -72,7 +72,7 @@ class _HomePageState extends AuthRequiredState<HomePage> {
                       InkWell(
                         onTap: () {
                           context.read<SwipeBloc>()
-                        ..add(SwipeLeftEvent(user: state.users[0]));
+                        ..add(SwipeLeftEvent(outing: state.outings[0]));
                         },
                         child: ChoiceButton(
                           width: 60,
@@ -86,7 +86,7 @@ class _HomePageState extends AuthRequiredState<HomePage> {
                       InkWell(
                         onTap: () {
                           context.read<SwipeBloc>()
-                        ..add(SwipeRightEvent(user: state.users[0]));
+                        ..add(SwipeRightEvent(outing: state.outings[0]));
                         },
                         child: ChoiceButton(
                           width: 80,

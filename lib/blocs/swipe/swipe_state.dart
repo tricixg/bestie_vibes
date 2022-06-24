@@ -12,14 +12,14 @@ abstract class SwipeState extends Equatable {
 class SwipeLoading extends SwipeState {}
 
 class SwipeLoaded extends SwipeState {
-  final List<Userr> users;
+  final List<Outing> outings;
 
   SwipeLoaded({
-    required this.users,
+    required this.outings,
   });
 
   @override
-  List<Object> get props => [users];
+  List<Object> get props => [outings];
 }
 
 class SwipeError extends SwipeState {}

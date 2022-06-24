@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+
 import 'dart:async';
 
 import 'package:bestie_vibes/blocs/swipe/swipe_event.dart';
@@ -26,7 +28,7 @@ class SwipeBloc extends Bloc<SwipeEvent, SwipeState> {
   
   Stream<SwipeState> _mapLoadUsersToState(LoadUsersEvent event,
   ) async* {
-    yield SwipeLoaded(users: event.users);
+    yield SwipeLoaded(outings: event.outings);
   }
   
   Stream<SwipeState> _mapSwipeLeftToState(
@@ -35,7 +37,7 @@ class SwipeBloc extends Bloc<SwipeEvent, SwipeState> {
   ) async* {
     if (state is SwipeLoaded) {
       try {
-        yield SwipeLoaded(users: List.from(state.users)..remove(event.user));
+        yield SwipeLoaded(outings: List.from(state.outings)..remove(event.outing));
       } catch (_) {}
     }
   }
@@ -46,7 +48,7 @@ class SwipeBloc extends Bloc<SwipeEvent, SwipeState> {
   ) async* {
     if (state is SwipeLoaded) {
       try {
-        yield SwipeLoaded(users: List.from(state.users)..remove(event.user));
+        yield SwipeLoaded(outings: List.from(state.outings)..remove(event.outing));
       } catch (_) {}
     }
   }
