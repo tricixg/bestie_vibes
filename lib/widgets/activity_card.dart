@@ -105,7 +105,7 @@ class ActivityCard extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              "${activity.tags}",
+                              "${activity.tag}",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Colors.black,
@@ -113,7 +113,7 @@ class ActivityCard extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              "${activity.bio}",
+                              "${activity.description}",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Colors.black,
