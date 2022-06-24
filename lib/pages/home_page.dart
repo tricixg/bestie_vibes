@@ -1,9 +1,13 @@
+import 'package:bestie_vibes/blocs/swipe/swipe_bloc.dart';
+import 'package:bestie_vibes/blocs/swipe/swipe_state.dart';
 import 'package:bestie_vibes/config/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:bestie_vibes/components/auth_state.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '/models/models.dart';
 import '/widgets/widgets.dart';
+import 'package:bloc/bloc.dart';
+
 
 class HomePage extends StatefulWidget {
   static const String routeName = '/splash';
