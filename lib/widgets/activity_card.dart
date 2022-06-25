@@ -239,7 +239,7 @@ class ActivityCard extends StatelessWidget {
                           decoration: BoxDecoration(
                               image: DecorationImage(
                                   fit: BoxFit.cover,
-                                  image: NetworkImage(activity.imageUrls[0])),
+                                  image: NetworkImage(activity.image_url[0])),
                               borderRadius: BorderRadius.circular(10.0),
                               boxShadow: [
                                 BoxShadow(color: Colors.grey.withOpacity(0.5))
@@ -255,7 +255,7 @@ class ActivityCard extends StatelessWidget {
               //       color: Color.fromARGB(255, 255, 205, 209),
               //       // image: DecorationImage(
               //       //     fit: BoxFit.cover,
-              //       //     image: NetworkImage(activity.imageUrls[0])),
+              //       //     image: NetworkImage(activity.image_url[0])),
               //       borderRadius: BorderRadius.circular(5.0),
               //       boxShadow: [
               //         BoxShadow(
@@ -269,7 +269,7 @@ class ActivityCard extends StatelessWidget {
               //   decoration: BoxDecoration(
               //      image: DecorationImage(
               //            fit: BoxFit.cover,
-              //            image: NetworkImage(activity.imageUrls[0])),
+              //            image: NetworkImage(activity.image_url[0])),
               //   ),
               // ),
               // Container(
