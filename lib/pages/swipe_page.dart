@@ -1,32 +1,25 @@
-import 'package:bestie_vibes/blocs/swipe/swipe_bloc.dart';
-import 'package:bestie_vibes/blocs/swipe/swipe_event.dart';
-import 'package:bestie_vibes/blocs/swipe/swipe_state.dart';
-import 'package:bestie_vibes/config/theme.dart';
+import 'package:bestie_vibes/blocs/swipe/swipe.dart';
 import 'package:flutter/material.dart';
-import 'package:bestie_vibes/components/auth_state.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
-import '/models/models.dart';
 import '/widgets/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bestie_vibes/components/auth_required_state.dart';
 
-
-class HomePage extends StatefulWidget {
-  static const String routeName = '/splash';
-  const HomePage({Key? key}) : super(key: key);
+class SwipePage extends StatefulWidget {
+  static const String routeName = '/swipe';
+  const SwipePage({Key? key}) : super(key: key);
 
   static Route route() {
     return MaterialPageRoute(
-      builder: (_) => HomePage(),
+      builder: (_) => SwipePage(),
       settings: RouteSettings(name: routeName),
     );
   }
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _SwipePageState createState() => _SwipePageState();
 }
 
-class _HomePageState extends AuthRequiredState<HomePage> {
+class _SwipePageState extends AuthRequiredState<SwipePage> {
   @override
   void initState() {
     super.initState();
@@ -35,7 +28,9 @@ class _HomePageState extends AuthRequiredState<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(),
+      appBar: CustomAppBar(
+        title: 'SWIPE',
+      ),
       body: BlocBuilder<SwipeBloc, SwipeState>(
         builder: (context, state) {
           if (state is SwipeLoading) {
@@ -72,7 +67,7 @@ class _HomePageState extends AuthRequiredState<HomePage> {
                       InkWell(
                         onTap: () {
                           context.read<SwipeBloc>()
-                        ..add(SwipeLeftEvent(outing: state.outings[0]));
+                            ..add(SwipeLeftEvent(outing: state.outings[0]));
                         },
                         child: ChoiceButton(
                           width: 60,
@@ -86,7 +81,7 @@ class _HomePageState extends AuthRequiredState<HomePage> {
                       InkWell(
                         onTap: () {
                           context.read<SwipeBloc>()
-                        ..add(SwipeRightEvent(outing: state.outings[0]));
+                            ..add(SwipeRightEvent(outing: state.outings[0]));
                         },
                         child: ChoiceButton(
                           width: 80,

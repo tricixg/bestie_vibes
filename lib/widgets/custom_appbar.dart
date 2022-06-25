@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
-
 class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
-  const CustomAppBar({
-    Key? key,
-  }) : super(key: key);
+  final String title;
+
+  const CustomAppBar({Key? key, required this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +21,7 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
           Expanded(
               flex: 2,
               child: Text(
-                'HOME',
+                title,
                 style: Theme.of(context).textTheme.headline2,
               ))
         ],
@@ -41,4 +40,3 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
   // TODO: implement preferredSize
   Size get preferredSize => Size.fromHeight(56.0);
 }
-

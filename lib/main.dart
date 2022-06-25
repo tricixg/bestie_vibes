@@ -2,7 +2,8 @@ import 'package:bestie_vibes/blocs/swipe/swipe_bloc.dart';
 import 'package:bestie_vibes/blocs/swipe/swipe_event.dart';
 import 'package:bestie_vibes/config/app_router.dart';
 import 'package:bestie_vibes/models/outing_model.dart';
-import 'package:bestie_vibes/pages/home_page.dart';
+import 'package:bestie_vibes/pages/group_page.dart';
+import 'package:bestie_vibes/pages/swipe_page.dart';
 import 'package:bestie_vibes/pages/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -34,10 +35,10 @@ class MyApp extends StatelessWidget {
     ], child:  
     MaterialApp(
       title: 'Bestie Vibes',
-      //hello
+      debugShowCheckedModeBanner: false,
       theme: theme(),
       onGenerateRoute: AppRouter.onGenerateRoute,
-      initialRoute: LoginPage.routeName,
+      initialRoute: GroupPage.routeName,
       // routes: <String, WidgetBuilder>{
       //   '/': (_) => const SplashPage(),
       //   '/login': (_) => const LoginPage(),

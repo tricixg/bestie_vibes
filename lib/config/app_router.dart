@@ -1,9 +1,5 @@
-import 'package:bestie_vibes/pages/home_page.dart';
-import 'package:bestie_vibes/pages/login_page.dart';
-import 'package:bestie_vibes/pages/profile_page.dart';
-import 'package:bestie_vibes/pages/splash_page.dart';
+import 'package:bestie_vibes/pages/pages.dart';
 import 'package:flutter/material.dart';
-
 
 class AppRouter {
   static Route onGenerateRoute(RouteSettings settings) {
@@ -13,10 +9,12 @@ class AppRouter {
         return LoginPage.route();
       case LoginPage.routeName:
         return LoginPage.route();
-      case HomePage.routeName:
-        return HomePage.route();        
+      case SwipePage.routeName:
+        return SwipePage.route();
       case ProfilePage.routeName:
         return ProfilePage.route();
+      case GroupPage.routeName:
+        return GroupPage.route();
       default:
         return _errorRoute();
     }
