@@ -14,20 +14,22 @@ class ActivitiesService {
     if (error != null && response.status != 406) {
       context.showErrorSnackBar(message: error.message);
     }
-    final data = response.data as List<dynamic>;
+    final List<dynamic> data = response.data;
     if (data != null) {
+      print('hello');
       return data.map((e) => toActivity(e)).toList();
     }
+    print('hi');
     return [];
   }
 
-  Activity toActivity(Map<String, dynamic> result) {
+ Activity toActivity(Map<String, dynamic> result) {
     return Activity(
       id: result['id'] ?? 'id',
       name: result['name'] ?? 'name',
       phone: result['phone'] ?? 'phone',
       opening: result['opening'] ?? 'opening',
-      image_url: result['image_url'] ?? 'image_url',
+      imageUrls: result['image_url'] ?? 'imageUrls',
       tag: result['tag'] ?? 'tag',
       description: result['description'] ?? 'description',
       address: result['address'] ?? 'address',
