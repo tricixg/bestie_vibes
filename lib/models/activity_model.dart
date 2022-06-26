@@ -1,13 +1,12 @@
-import 'dart:ffi';
 
 import 'package:equatable/equatable.dart';
 
 class Activity extends Equatable {
-  final BigInt id;
+  final int id;
   final String name;
   final String phone;
   final String opening;
-  final List<dynamic> imageUrls;
+  final String imageUrls;
   final String tag;
   final String description;
   final String address;

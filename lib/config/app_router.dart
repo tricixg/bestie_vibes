@@ -1,3 +1,4 @@
+import 'package:bestie_vibes/pages/activity_retrieve.dart';
 import 'package:bestie_vibes/pages/home_page.dart';
 import 'package:bestie_vibes/pages/login_page.dart';
 import 'package:bestie_vibes/pages/profile_page.dart';
@@ -17,6 +18,8 @@ class AppRouter {
         return HomePage.route();        
       case ProfilePage.routeName:
         return ProfilePage.route();
+      case ActivityRetrieve.routeName:
+        return ActivityRetrieve.route();        
       default:
         return _errorRoute();
     }
