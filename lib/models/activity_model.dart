@@ -37,7 +37,7 @@ class Activity extends Equatable {
   //     name: 'Crafting',
   //     phone: 98323325,
   //     opening: '10am-2pm',
-  //     imageUrls: [
+  //     image_url: [
   //       'https://images.unsplash.com/photo-1595623238469-fc58b3839cf6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=755&q=80',
   //     ],
   //     address: 'Orchard Rd 123 ',
@@ -54,7 +54,7 @@ class Activity extends Equatable {
   //     name: 'climbing',
   //     phone: 99325232,
   //     opening: '10am-2pm',
-  //     imageUrls: [
+  //     image_url: [
   //       'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
   //     ],
   //     address: 'Orchard Rd 123 ',
@@ -71,7 +71,7 @@ class Activity extends Equatable {
   //     name: 'din tai fung',
   //     phone: 99334232,
   //     opening: '10am-2pm',
-  //     imageUrls: [
+  //     image_url: [
   //       'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
   //     ],
   //     address: 'Orchard Rd 123 ',
@@ -88,7 +88,7 @@ class Activity extends Equatable {
   //     name: 'din tai fung',
   //     phone: 99334232,
   //     opening: '10am-2pm',
-  //     imageUrls: [
+  //     image_url: [
   //       'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
   //     ],
   //     address: 'Orchard Rd 123 ',
@@ -105,7 +105,7 @@ class Activity extends Equatable {
   //     name: 'din tai fung',
   //     phone: 99334232,
   //     opening: '10am-2pm',
-  //     imageUrls: [
+  //     image_url: [
   //       'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
   //     ],
   //     address: 'Orchard Rd 123 ',
@@ -122,7 +122,7 @@ class Activity extends Equatable {
   //     name: 'din tai fung',
   //     phone: 99334232,
   //     opening: '10am-2pm',
-  //     imageUrls: [
+  //     image_url: [
   //       'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
   //     ],
   //     address: 'Orchard Rd 123 ',
@@ -139,7 +139,7 @@ class Activity extends Equatable {
   //     name: 'din tai fung',
   //     phone: 99334232,
   //     opening: '10am-2pm',
-  //     imageUrls: [
+  //     image_url: [
   //       'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
   //     ],
   //     address: 'Orchard Rd 123 ',
@@ -156,7 +156,7 @@ class Activity extends Equatable {
   //     name: 'din tai fung',
   //     phone: 99334232,
   //     opening: '10am-2pm',
-  //     imageUrls: [
+  //     image_url: [
   //       'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
   //     ],
   //     address: 'Orchard Rd 123 ',
@@ -173,7 +173,7 @@ class Activity extends Equatable {
   //     name: 'din tai fung',
   //     phone: 99334232,
   //     opening: '10am-2pm',
-  //     imageUrls: [
+  //     image_url: [
   //       'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
   //     ],
   //     address: 'Orchard Rd 123 ',
@@ -190,7 +190,7 @@ class Activity extends Equatable {
   //     name: 'din tai fung',
   //     phone: 99334232,
   //     opening: '10am-2pm',
-  //     imageUrls: [
+  //     image_url: [
   //       'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
   //     ],
   //     address: 'Orchard Rd 123 ',
@@ -207,7 +207,7 @@ class Activity extends Equatable {
   //     name: 'din tai fung',
   //     phone: 99334232,
   //     opening: '10am-2pm',
-  //     imageUrls: [
+  //     image_url: [
   //       'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
   //     ],
   //     address: 'Orchard Rd 123 ',
@@ -224,7 +224,7 @@ class Activity extends Equatable {
   //     name: 'din tai fung',
   //     phone: 99334232,
   //     opening: '10am-2pm',
-  //     imageUrls: [
+  //     image_url: [
   //       'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
   //     ],
   //     address: 'Orchard Rd 123 ',

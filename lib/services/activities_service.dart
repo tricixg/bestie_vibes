@@ -23,18 +23,18 @@ class ActivitiesService {
 
   Activity toActivity(Map<String, dynamic> result) {
     return Activity(
-      id: result['id'],
-      name: result['name'],
-      phone: result['phone'],
-      opening: result['opening'],
-      imageUrls: result['imageUrls'],
-      tag: result['tag'],
-      description: result['description'],
-      address: result['address'],
-      price: result['price'],
-      type: result['type'],
-      postal: result['postal'],
-      website: result['website'],
+      id: result['id'] ?? 'id',
+      name: result['name'] ?? 'name',
+      phone: result['phone'] ?? 'phone',
+      opening: result['opening'] ?? 'opening',
+      image_url: result['image_url'] ?? 'image_url',
+      tag: result['tag'] ?? 'tag',
+      description: result['description'] ?? 'description',
+      address: result['address'] ?? 'address',
+      price: result['price'] ?? 'price',
+      type: result['type'] ?? 'type',
+      postal: result['postal'] ?? 'postal',
+      website: result['website'] ?? 'website',
     );
   }
 }
