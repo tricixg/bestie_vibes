@@ -22,6 +22,25 @@ class UsersService {
     return [];
   }
 
+  // for users to fetch a user by username (search for a username)
+  // returns user if exists, otherwise return null
+  Future<User?> getUser(String username) async {
+    final response = await supabase
+        .from('profiles')
+        .select()
+        .eq('username', username)
+        .execute();
+    final error = response.error;
+    if (error != null && response.status != 406) {
+      context.showErrorSnackBar(message: error.message);
+    }
+    final data = response.data as List<dynamic>;
+    if (data != null) {
+      return toUser(data[0]);
+    }
+    return null;
+  }
+
   User toUser(Map<String, dynamic> result) {
     return User(
       id: result['id'] ?? 'id',
