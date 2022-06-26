@@ -5,9 +5,9 @@ ThemeData theme() {
     scaffoldBackgroundColor: Color(0xFFF5F5F5),
     colorScheme: ColorScheme(
       primary: Color.fromARGB(255, 253, 186, 192),
-      primaryVariant: Color(0xFFFE3C5B),
+      primaryVariant: Color(0xFFFD6974),
       secondary: Color.fromARGB(255, 254, 143, 152),
-      secondaryVariant: Color(0xFFe84545),
+      secondaryVariant: Color(0xFFFB4754),
       background: Color(0xFFFFFFFF),
       surface: Color(0xFFFFFFFF),
       error: Color(0x000000),

@@ -2,21 +2,23 @@ import 'dart:ffi';
 
 import 'package:equatable/equatable.dart';
 
-class Outing extends Equatable {
+class Availability extends Equatable {
   final BigInt id;
-  final BigInt group_id;
-  final BigInt activity_id;
+  final String user_id;
   final BigInt timeblock_id;
+  final BigInt outing_id;
 
-  const Outing({
+  const Availability({
     required this.id,
-    required this.group_id,
-    required this.activity_id,
+    required this.user_id,
     required this.timeblock_id,
+    required this.outing_id,
   });
 
   @override
   List<Object?> get props => [
-        id,
+        user_id,
+        timeblock_id,
+        outing_id,
       ];
 }

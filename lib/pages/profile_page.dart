@@ -8,7 +8,7 @@ class ProfilePage extends StatefulWidget {
   static const String routeName = '/profile';
   const ProfilePage({Key? key}) : super(key: key);
 
- static Route route() {
+  static Route route() {
     return MaterialPageRoute(
       builder: (_) => ProfilePage(),
       settings: RouteSettings(name: routeName),
