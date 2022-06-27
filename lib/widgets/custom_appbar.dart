@@ -26,13 +26,13 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
               ))
         ],
       ),
-      actions: [
-        IconButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/profile');
-            },
-            icon: Icon(Icons.person, color: Colors.pink[200]))
-      ],
+      // actions: [
+      //   IconButton(
+      //       onPressed: () {
+      //         Navigator.pushNamed(context, '/addfriends');
+      //       },
+      //       icon: Icon(Icons.group_add_rounded, color: Colors.pink[200]))
+      // ],
     );
   }
 

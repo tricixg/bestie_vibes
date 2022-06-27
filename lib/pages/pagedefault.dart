@@ -3,22 +3,22 @@ import '/widgets/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bestie_vibes/components/auth_required_state.dart';
 
-class SwipePage extends StatefulWidget {
-  static const String routeName = '/swipe';
-  const SwipePage({Key? key}) : super(key: key);
+class PageDefault extends StatefulWidget {
+  static const String routeName = '/default';
+  const PageDefault({Key? key}) : super(key: key);
 
   static Route route() {
     return MaterialPageRoute(
-      builder: (_) => SwipePage(),
+      builder: (_) => PageDefault(),
       settings: RouteSettings(name: routeName),
     );
   }
 
   @override
-  _SwipePageState createState() => _SwipePageState();
+  _PageDefaultState createState() => _PageDefaultState();
 }
 
-class _SwipePageState extends AuthRequiredState<SwipePage> {
+class _PageDefaultState extends AuthRequiredState<PageDefault> {
   @override
   void initState() {
     super.initState();

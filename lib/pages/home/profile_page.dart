@@ -1,3 +1,4 @@
+import 'package:bestie_vibes/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase/supabase.dart';
 import 'package:bestie_vibes/components/auth_required_state.dart';
@@ -128,7 +129,7 @@ class _ProfilePageState extends AuthRequiredState<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Profile')),
+      appBar: CustomAppBar(title: 'PROFILE',),
       body: ListView(
         padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 12),
         children: [

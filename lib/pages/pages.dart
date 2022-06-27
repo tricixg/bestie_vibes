@@ -1,7 +1,10 @@
 export 'login_page.dart';
-export 'group_page.dart';
-export 'profile_page.dart';
-export 'swipe_page.dart';
+export 'home/home_page.dart';
+export 'home/profile_page.dart';
+export 'pagedefault.dart';
 export 'splash_page.dart';
-export 'chat_screen.dart';
-export 'activity_retrieve.dart';
+export 'new outing/chat_screen.dart';
+export 'new outing/swipe_page.dart';
+export 'home/memories_page.dart';
+export 'home/statistics_page.dart';
+export 'new outing/new_outing.dart';
