@@ -6,7 +6,6 @@ import '/models/models.dart';
 import '/widgets/widgets.dart';
 import 'package:bestie_vibes/components/auth_required_state.dart';
 import 'package:swipe_cards/swipe_cards.dart';
-import 'package:bestie_vibes/services/services.dart';
 
 class ActivityRetrieve extends StatefulWidget {
   static const String routeName = '/activity';
@@ -65,7 +64,7 @@ class _ActivityRetrieveState extends AuthRequiredState<ActivityRetrieve> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(),
+      appBar: CustomAppBar(title: 'Swipe',),
       body: FutureBuilder<List<Activity>>(
         future: getActivities(),
         builder: (ctx, snapshot) {

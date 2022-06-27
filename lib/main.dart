@@ -1,9 +1,11 @@
 
 import 'package:bestie_vibes/config/app_router.dart';
-import 'package:bestie_vibes/pages/activity_retrieve.dart';
+import 'package:bestie_vibes/models/outing_model.dart';
+import 'package:bestie_vibes/pages/group_page.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'config/theme.dart';
+import 'pages/pages.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

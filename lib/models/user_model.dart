@@ -1,22 +1,11 @@
-import 'dart:ffi';
+class User {
+  final int id;
+  final String name;
+  final List<dynamic> imageUrl;
 
-import 'package:equatable/equatable.dart';
-
-class User extends Equatable {
-  final String id;
-  final String username;
-  final List<dynamic> avatar_url;
-  final String favouritecolour;
-
-  const User({
+  User({
     required this.id,
-    required this.username,
-    required this.avatar_url,
-    required this.favouritecolour,
+    required this.name,
+    required this.imageUrl,
   });
-
-  @override
-  List<Object?> get props => [
-        id,
-      ];
 }
