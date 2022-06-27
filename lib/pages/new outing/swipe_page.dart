@@ -144,14 +144,14 @@ Widget _buildSwipeView(List<Activity> activity, context) {
                 ),
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {Navigator.pushNamed(context, '/home');},
                 child: ChoiceButton(
                 width: 60,
                 height: 60,
                 size: 25,
                 color: Color.fromARGB(255, 253, 186, 192),
                 hasGradient: false,
-                icon: Icons.refresh
+                icon: Icons.navigate_next_outlined
               ),
               ),
             ],

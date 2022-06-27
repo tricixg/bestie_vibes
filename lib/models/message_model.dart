@@ -30,28 +30,28 @@ final User currentUser = User(
 // USERS
 final User greg = User(
   id: 1,
-  name: 'Greg',
+  name: 'Test1, Test2, Test3',
   imageUrl: [
     'https://images.unsplash.com/photo-1595623238469-fc58b3839cf6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=755&q=80',
   ],
 );
 final User james = User(
   id: 2,
-  name: 'James',
+  name: 'Test1',
   imageUrl: [
     'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
   ],
 );
 final User john = User(
   id: 3,
-  name: 'John',
+  name: 'Test2',
   imageUrl: [
     'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
   ],
 );
 final User olivia = User(
   id: 4,
-  name: 'Olivia',
+  name: 'Test3',
   imageUrl: [
     'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
   ],
@@ -84,119 +84,65 @@ List<User> favorites = [sam, steven, olivia, john, greg];
 // EXAMPLE CHATS ON HOME SCREEN
 List<Message> chats = [
   Message(
-    sender: james,
-    time: '5:30 PM',
-    text: 'Hey, how\'s it going? What did you do today?',
+    sender: greg,
+    time: '',
+    text: 'Test3 has swiped',
+    isLiked: false,
+    unread: true,
+  ),
+
+];
+
+// EXAMPLE MESSAGES IN CHAT SCREEN
+List<Message> messages = [
+  // Message(
+  //   sender: james,
+  //   time: '5:30 PM',
+  //   text: 'Hey, how\'s it going? What did you do today?',
+  //   isLiked: true,
+  //   unread: true,
+  // ),
+  Message(
+    sender: currentUser,
+    time: '',
+    text: 'bestievibes has swiped',
     isLiked: false,
     unread: true,
   ),
   Message(
-    sender: olivia,
-    time: '4:30 PM',
-    text: 'Hey, how\'s it going? What did you do today?',
+    sender: james,
+    time: '',
+    text: 'Test1 has swiped',
     isLiked: false,
     unread: true,
   ),
   Message(
     sender: john,
-    time: '3:30 PM',
-    text: 'Hey, how\'s it going? What did you do today?',
-    isLiked: false,
-    unread: false,
-  ),
-  Message(
-    sender: sophia,
-    time: '2:30 PM',
-    text: 'Hey, how\'s it going? What did you do today?',
-    isLiked: false,
+    time: '',
+    text: 'Test2 has swiped',
+    isLiked: true,
     unread: true,
   ),
-  Message(
-    sender: steven,
-    time: '1:30 PM',
-    text: 'Hey, how\'s it going? What did you do today?',
-    isLiked: false,
-    unread: false,
-  ),
-  Message(
-    sender: sam,
-    time: '12:30 PM',
-    text: 'Hey, how\'s it going? What did you do today?',
-    isLiked: false,
-    unread: false,
-  ),
-  Message(
-    sender: greg,
-    time: '11:30 AM',
-    text: 'Hey, how\'s it going? What did you do today?',
-    isLiked: false,
-    unread: false,
-  ),
-    Message(
-    sender: greg,
-    time: '11:30 AM',
-    text: 'Hey, how\'s it going? What did you do today?',
-    isLiked: false,
-    unread: false,
-  ),
-    Message(
-    sender: greg,
-    time: '11:30 AM',
-    text: 'Hey, how\'s it going? What did you do today?',
-    isLiked: false,
-    unread: false,
-  ),
-    Message(
-    sender: greg,
-    time: '11:30 AM',
-    text: 'Hey, how\'s it going? What did you do today?',
-    isLiked: false,
-    unread: false,
-  ),
-];
 
-// EXAMPLE MESSAGES IN CHAT SCREEN
-List<Message> messages = [
   Message(
-    sender: james,
-    time: '5:30 PM',
-    text: 'Hey, how\'s it going? What did you do today?',
-    isLiked: true,
-    unread: true,
-  ),
-  Message(
-    sender: currentUser,
-    time: '4:30 PM',
-    text: 'Just walked my doge. She was super duper cute. The best pupper!!',
+    sender: olivia,
+    time: '',
+    text: 'Test3 has swiped',
     isLiked: false,
     unread: true,
   ),
-  Message(
-    sender: james,
-    time: '3:45 PM',
-    text: 'How\'s the doggo?',
-    isLiked: false,
-    unread: true,
-  ),
-  Message(
-    sender: james,
-    time: '3:15 PM',
-    text: 'All the food',
-    isLiked: true,
-    unread: true,
-  ),
-  Message(
-    sender: currentUser,
-    time: '2:30 PM',
-    text: 'Nice! What kind of food did you eat?',
-    isLiked: false,
-    unread: true,
-  ),
-  Message(
-    sender: james,
-    time: '2:00 PM',
-    text: 'I ate so much food today.',
-    isLiked: false,
-    unread: true,
-  ),
+  //   Message(
+  //   sender: currentUser,
+  //   time: '',
+  //   text: 'New Outing Created',
+  //   isLiked: false,
+  //   unread: true,
+  // ),
+  //     Message(
+  //   sender: currentUser,
+  //   time: '',
+  //   text: 'bestievibes has swiped',
+  //   isLiked: false,
+  //   unread: true,
+  // ),
 ];

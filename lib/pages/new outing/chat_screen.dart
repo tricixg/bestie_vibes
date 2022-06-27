@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:bestie_vibes/models/models.dart';
 
@@ -37,6 +38,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 bottomRight: Radius.circular(15.0),
               ),
       ),
+      
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -80,42 +82,50 @@ class _ChatScreenState extends State<ChatScreen> {
     );
   }
 
-  _buildMessageComposer() {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 8.0),
-      height: 70.0,
-      color: Colors.white,
-      child: Row(
-        children: <Widget>[
-          IconButton(
-            icon: Icon(Icons.photo),
-            iconSize: 25.0,
-            color: Color.fromARGB(255, 254, 143, 152),
-            onPressed: () {},
-          ),
-          Expanded(
-            child: TextField(
-              textCapitalization: TextCapitalization.sentences,
-              onChanged: (value) {},
-              decoration: InputDecoration.collapsed(
-                hintText: 'Send a message...',
-              ),
-            ),
-          ),
-          IconButton(
-            icon: Icon(Icons.send),
-            iconSize: 25.0,
-            color: Color.fromARGB(255, 254, 143, 152),
-            onPressed: () {},
-          ),
-        ],
-      ),
-    );
-  }
+  // _buildMessageComposer() {
+  //   return Container(
+  //     padding: EdgeInsets.symmetric(horizontal: 8.0),
+  //     height: 70.0,
+  //     color: Colors.white,
+  //     child: Row(
+  //       children: <Widget>[
+  //         IconButton(
+  //           icon: Icon(Icons.photo),
+  //           iconSize: 25.0,
+  //           color: Color.fromARGB(255, 254, 143, 152),
+  //           onPressed: () {},
+  //         ),
+  //         Expanded(
+  //           child: TextField(
+  //             textCapitalization: TextCapitalization.sentences,
+  //             onChanged: (value) {},
+  //             decoration: InputDecoration.collapsed(
+  //               hintText: 'Send a message...',
+  //             ),
+  //           ),
+  //         ),
+  //         IconButton(
+  //           icon: Icon(Icons.send),
+  //           iconSize: 25.0,
+  //           color: Color.fromARGB(255, 254, 143, 152),
+  //           onPressed: () {},
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pushNamed(context, '/swipe');
+        },
+        backgroundColor: Color(0xFFFD6974),
+        child: const Icon(Icons.add),
+      ),
       backgroundColor: Color.fromARGB(255, 253, 186, 192),
       appBar: AppBar(
         title: Text(
@@ -128,10 +138,10 @@ class _ChatScreenState extends State<ChatScreen> {
         elevation: 0.0,
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.more_horiz),
+            icon: Icon(CupertinoIcons.check_mark),
             iconSize: 30.0,
             color: Colors.white,
-            onPressed: () {},
+            onPressed: () {Navigator.pushNamed(context, '/results');},
           ),
         ],
       ),
@@ -154,7 +164,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     topRight: Radius.circular(30.0),
                   ),
                   child: ListView.builder(
-                    reverse: true,
+                    reverse: false,
                     padding: EdgeInsets.only(top: 15.0),
                     itemCount: messages.length,
                     itemBuilder: (BuildContext context, int index) {
@@ -166,7 +176,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 ),
               ),
             ),
-            _buildMessageComposer(),
+            //_buildMessageComposer(),
           ],
         ),
       ),
