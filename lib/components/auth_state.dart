@@ -14,7 +14,7 @@ class AuthState<T extends StatefulWidget> extends SupabaseAuthState<T> {
   void onAuthenticated(Session session) {
     if (mounted) {
       Navigator.of(context)
-          .pushNamedAndRemoveUntil('/activity', (route) => false);
+          .pushNamedAndRemoveUntil('/home', (route) => false);
     }
   }
 

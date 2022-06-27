@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 ThemeData theme() {
   return ThemeData(
-    scaffoldBackgroundColor: Color(0xFFF5F5F5),
+    scaffoldBackgroundColor: Colors.pink[50],
     colorScheme: ColorScheme(
       primary: Color.fromARGB(255, 253, 186, 192),
       primaryVariant: Color(0xFFFD6974),

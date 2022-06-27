@@ -132,6 +132,27 @@ List<Message> chats = [
     isLiked: false,
     unread: false,
   ),
+    Message(
+    sender: greg,
+    time: '11:30 AM',
+    text: 'Hey, how\'s it going? What did you do today?',
+    isLiked: false,
+    unread: false,
+  ),
+    Message(
+    sender: greg,
+    time: '11:30 AM',
+    text: 'Hey, how\'s it going? What did you do today?',
+    isLiked: false,
+    unread: false,
+  ),
+    Message(
+    sender: greg,
+    time: '11:30 AM',
+    text: 'Hey, how\'s it going? What did you do today?',
+    isLiked: false,
+    unread: false,
+  ),
 ];
 
 // EXAMPLE MESSAGES IN CHAT SCREEN

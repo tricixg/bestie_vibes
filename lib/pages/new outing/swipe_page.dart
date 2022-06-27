@@ -1,29 +1,29 @@
 
 import 'package:flutter/material.dart';
 import 'package:swipe_cards/draggable_card.dart';
-import '../utils/constants.dart';
+import '../../utils/constants.dart';
 import '/models/models.dart';
 import '/widgets/widgets.dart';
 import 'package:bestie_vibes/components/auth_required_state.dart';
 import 'package:swipe_cards/swipe_cards.dart';
 
-class ActivityRetrieve extends StatefulWidget {
-  static const String routeName = '/activity';
+class SwipePage extends StatefulWidget {
+  static const String routeName = '/swipe';
 
-  const ActivityRetrieve({Key? key}) : super(key: key);
+  const SwipePage({Key? key}) : super(key: key);
 
   static Route route() {
     return MaterialPageRoute(
-      builder: (_) => ActivityRetrieve(),
+      builder: (_) => SwipePage(),
       settings: RouteSettings(name: routeName),
     );
   }
 
   @override
-  _ActivityRetrieveState createState() => _ActivityRetrieveState();
+  _SwipePageState createState() => _SwipePageState();
 }
 
-class _ActivityRetrieveState extends AuthRequiredState<ActivityRetrieve> {
+class _SwipePageState extends AuthRequiredState<SwipePage> {
   @override
   void initState() {
     super.initState();
@@ -64,7 +64,7 @@ class _ActivityRetrieveState extends AuthRequiredState<ActivityRetrieve> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: 'Swipe',),
+      appBar: CustomAppBar(title: 'SWIPE',),
       body: FutureBuilder<List<Activity>>(
         future: getActivities(),
         builder: (ctx, snapshot) {
