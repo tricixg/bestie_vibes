@@ -37,10 +37,8 @@ class _SwipePageState extends AuthRequiredState<SwipePage> {
     }
     final List<dynamic> data = response.data;
     if (data != null) {
-      print('hello');
       return data.map((e) => toActivity(e)).toList();
     }
-    print('hi');
     return [];
   }
 
