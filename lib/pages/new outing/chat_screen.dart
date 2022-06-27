@@ -80,42 +80,50 @@ class _ChatScreenState extends State<ChatScreen> {
     );
   }
 
-  _buildMessageComposer() {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 8.0),
-      height: 70.0,
-      color: Colors.white,
-      child: Row(
-        children: <Widget>[
-          IconButton(
-            icon: Icon(Icons.photo),
-            iconSize: 25.0,
-            color: Color.fromARGB(255, 254, 143, 152),
-            onPressed: () {},
-          ),
-          Expanded(
-            child: TextField(
-              textCapitalization: TextCapitalization.sentences,
-              onChanged: (value) {},
-              decoration: InputDecoration.collapsed(
-                hintText: 'Send a message...',
-              ),
-            ),
-          ),
-          IconButton(
-            icon: Icon(Icons.send),
-            iconSize: 25.0,
-            color: Color.fromARGB(255, 254, 143, 152),
-            onPressed: () {},
-          ),
-        ],
-      ),
-    );
-  }
+  // _buildMessageComposer() {
+  //   return Container(
+  //     padding: EdgeInsets.symmetric(horizontal: 8.0),
+  //     height: 70.0,
+  //     color: Colors.white,
+  //     child: Row(
+  //       children: <Widget>[
+  //         IconButton(
+  //           icon: Icon(Icons.photo),
+  //           iconSize: 25.0,
+  //           color: Color.fromARGB(255, 254, 143, 152),
+  //           onPressed: () {},
+  //         ),
+  //         Expanded(
+  //           child: TextField(
+  //             textCapitalization: TextCapitalization.sentences,
+  //             onChanged: (value) {},
+  //             decoration: InputDecoration.collapsed(
+  //               hintText: 'Send a message...',
+  //             ),
+  //           ),
+  //         ),
+  //         IconButton(
+  //           icon: Icon(Icons.send),
+  //           iconSize: 25.0,
+  //           color: Color.fromARGB(255, 254, 143, 152),
+  //           onPressed: () {},
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pushNamed(context, '/swipe');
+        },
+        backgroundColor: Color(0xFFFD6974),
+        child: const Icon(Icons.add),
+      ),
       backgroundColor: Color.fromARGB(255, 253, 186, 192),
       appBar: AppBar(
         title: Text(
@@ -166,7 +174,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 ),
               ),
             ),
-            _buildMessageComposer(),
+            //_buildMessageComposer(),
           ],
         ),
       ),
