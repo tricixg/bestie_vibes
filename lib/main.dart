@@ -1,6 +1,7 @@
 
 import 'package:bestie_vibes/config/app_router.dart';
 import 'package:bestie_vibes/models/outing_model.dart';
+import 'package:bestie_vibes/pages/home/group_page.dart';
 import 'package:bestie_vibes/pages/home/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
