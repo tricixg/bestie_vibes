@@ -9,4 +9,3 @@ class User {
     required this.imageUrl,
   });
 }
-

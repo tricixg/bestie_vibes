@@ -1,5 +1,4 @@
 import 'package:bestie_vibes/pages/add_friends.dart';
-import 'package:bestie_vibes/pages/new%20outing/results_page.dart';
 import 'package:bestie_vibes/pages/pages.dart';
 import 'package:flutter/material.dart';
 
@@ -27,8 +26,6 @@ class AppRouter {
       //   return AddFriends.route();
       case NewOutingPage.routeName:
         return NewOutingPage.route();
-      case ResultsPage.routeName:
-        return ResultsPage.route();
 
       default:
         return _errorRoute();

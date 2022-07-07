@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:bestie_vibes/models/models.dart';
 
@@ -38,7 +37,6 @@ class _ChatScreenState extends State<ChatScreen> {
                 bottomRight: Radius.circular(15.0),
               ),
       ),
-      
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -138,10 +136,10 @@ class _ChatScreenState extends State<ChatScreen> {
         elevation: 0.0,
         actions: <Widget>[
           IconButton(
-            icon: Icon(CupertinoIcons.check_mark),
+            icon: Icon(Icons.more_horiz),
             iconSize: 30.0,
             color: Colors.white,
-            onPressed: () {Navigator.pushNamed(context, '/results');},
+            onPressed: () {},
           ),
         ],
       ),
@@ -164,7 +162,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     topRight: Radius.circular(30.0),
                   ),
                   child: ListView.builder(
-                    reverse: false,
+                    reverse: true,
                     padding: EdgeInsets.only(top: 15.0),
                     itemCount: messages.length,
                     itemBuilder: (BuildContext context, int index) {
