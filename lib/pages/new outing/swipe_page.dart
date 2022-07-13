@@ -1,4 +1,4 @@
-
+import 'package:bestie_vibes/components/swipeBackground.dart';
 import 'package:flutter/material.dart';
 import 'package:swipe_cards/draggable_card.dart';
 import '../../utils/constants.dart';
@@ -62,19 +62,25 @@ class _SwipePageState extends AuthRequiredState<SwipePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: 'SWIPE',),
-      body: FutureBuilder<List<Activity>>(
-        future: getActivities(),
-        builder: (ctx, snapshot) {
-          List<Activity> activity = snapshot.data ?? <Activity>[];
-          switch (snapshot.connectionState) {
-            case ConnectionState.done:
-              return _buildSwipeView(activity, context);
-            default:
-              return _buildLoadingScreen();
-          }
-        },
+      appBar: CustomAppBar(
+        title: 'SWIPE',
       ),
+      body: Stack(
+        children: [ 
+          swipeBackground(),
+          FutureBuilder<List<Activity>>(
+            future: getActivities(),
+            builder: (ctx, snapshot) {
+              List<Activity> activity = snapshot.data ?? <Activity>[];
+              switch (snapshot.connectionState) {
+                case ConnectionState.done:
+                  return _buildSwipeView(activity, context);
+                default:
+                  return _buildLoadingScreen();
+              }
+            },
+          ),
+       ], ),
     );
   }
 }
@@ -120,7 +126,9 @@ Widget _buildSwipeView(List<Activity> activity, context) {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               InkWell(
-                onTap: () {matchEngine.currentItem?.nope();	},
+                onTap: () {
+                  matchEngine.currentItem?.nope();
+                },
                 child: ChoiceButton(
                   width: 60,
                   height: 60,
@@ -131,7 +139,9 @@ Widget _buildSwipeView(List<Activity> activity, context) {
                 ),
               ),
               InkWell(
-                onTap: () { matchEngine.currentItem?.like();	},
+                onTap: () {
+                  matchEngine.currentItem?.like();
+                },
                 child: ChoiceButton(
                   width: 80,
                   height: 80,
@@ -142,15 +152,16 @@ Widget _buildSwipeView(List<Activity> activity, context) {
                 ),
               ),
               InkWell(
-                onTap: () {Navigator.pushNamed(context, '/home');},
+                onTap: () {
+                  Navigator.pushNamed(context, '/home');
+                },
                 child: ChoiceButton(
-                width: 60,
-                height: 60,
-                size: 25,
-                color: Color.fromARGB(255, 253, 186, 192),
-                hasGradient: false,
-                icon: Icons.navigate_next_outlined
-              ),
+                    width: 60,
+                    height: 60,
+                    size: 25,
+                    color: Color.fromARGB(255, 253, 186, 192),
+                    hasGradient: false,
+                    icon: Icons.navigate_next_outlined),
               ),
             ],
           ),

@@ -5,4 +5,4 @@ export 'outings_service.dart';
 export 'swipes_service.dart';
 export 'timeblocks_service.dart';
 export 'user_group_service.dart';
-export 'users_service.dart';
+export 'profiles_service.dart';

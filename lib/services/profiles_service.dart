@@ -1,4 +1,4 @@
-import 'package:bestie_vibes/models/userr_model.dart';
+import 'package:bestie_vibes/models/profile_model.dart';
 import 'package:flutter/material.dart';
 
 import '/models/models.dart';
@@ -10,7 +10,7 @@ class UsersService {
   UsersService(this.context);
 
   // for users to view all public profiles:
-  Future<List<Userr>> getUsers() async {
+  Future<List<Profile>> getUsers() async {
     final response = await supabase.from('profiles').select().execute();
     final error = response.error;
     if (error != null && response.status != 406) {
@@ -26,7 +26,7 @@ class UsersService {
 
   // for users to fetch a user by username (search for a username)
   // returns user if exists, otherwise return null
-  Future<Userr?> getUser(String username) async {
+  Future<Profile?> getUser(String username) async {
     final response = await supabase
         .from('profiles')
         .select()
@@ -44,8 +44,8 @@ class UsersService {
   }
 
 
-  Userr toUser(Map<String, dynamic> result) {
-    return Userr(
+  Profile toUser(Map<String, dynamic> result) {
+    return Profile(
       id: result['id'] ?? 'id',
       username: result['username'] ?? 'username',
       avatar_url: result['avatar_url'] ?? 'avatar_url',

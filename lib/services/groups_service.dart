@@ -90,6 +90,7 @@ class GroupsService {
       id: result['id'] ?? 'id',
       name: result['name'] ?? 'name',
       creator_id: result['creator_id'] ?? 'creator_id',
+      createdAt: result['created_at']
     );
   }
 }

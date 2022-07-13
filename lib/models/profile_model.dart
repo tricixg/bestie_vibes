@@ -1,12 +1,12 @@
 import 'package:equatable/equatable.dart';
 
-class Userr extends Equatable {
+class Profile extends Equatable {
   final String id;
   final String username;
   final List<dynamic> avatar_url;
   final String favouritecolour;
 
-  const Userr({
+  const Profile({
     required this.id,
     required this.username,
     required this.avatar_url,
@@ -17,4 +17,10 @@ class Userr extends Equatable {
   List<Object?> get props => [
         id,
       ];
+
+  Profile.fromMap(Map<String, dynamic> map)
+      : id = map['id'],
+        username = map['username'],
+        avatar_url = map['avatar_url'],
+        favouritecolour = map['favouritecolour'];
 }
