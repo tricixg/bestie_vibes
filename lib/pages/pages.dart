@@ -7,5 +7,5 @@ export 'old/oldchat_screen.dart';
 export 'new outing/swipe_page.dart';
 export 'home/memories_page.dart';
 export 'home/statistics_page.dart';
-export 'new outing/new_outing.dart';
+export 'new outing/add_users.dart';
 export 'new outing/chatroom_page.dart';

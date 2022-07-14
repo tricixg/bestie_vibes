@@ -1,6 +1,9 @@
 import 'dart:async';
 
 
+import 'package:bestie_vibes/pages/home/room_page.dart';
+import 'package:bestie_vibes/pages/pages.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '/widgets/widgets.dart';
@@ -78,6 +81,16 @@ class _ChatRoomPageState extends AuthRequiredState<ChatRoomPage> {
           child: const Icon(Icons.add),
         ),
         appBar: AppBar(
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) {
+                  return HomePage();
+                }),
+              );             
+            },
+          ),
           backgroundColor: Colors.pink[50],
           elevation: 0,
           title: Row(
@@ -90,13 +103,14 @@ class _ChatRoomPageState extends AuthRequiredState<ChatRoomPage> {
               ),
               Expanded(
                   flex: 2,
-                  child: TextButton(
+                  child: 
+                  TextButton(
                     onPressed: () {
                       showDialog(
                           context: context,
                           builder: (context) {
                             return EditTitleDialog(
-                              roomId: widget.room.room_id,
+                              room: widget.room,
                             );
                           });
                     },
@@ -105,20 +119,30 @@ class _ChatRoomPageState extends AuthRequiredState<ChatRoomPage> {
                       style: Theme.of(context).textTheme.headline2,
                     ),
                   ),
-                  
                   )
             ],
           ),
           actions: [
-            TextButton(
-                onPressed: () {
-                  showDialog(
-                      context: context,
-                      builder: (context) {
-                        return InviteDialog(roomId: widget.room.room_id);
-                      });
-                },
-                child: const Text('Invite')),
+            IconButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) {
+                    return addUserPage(room: widget.room);
+                  }),
+                );
+              }, 
+              icon: Icon(CupertinoIcons.person_2_fill, color: Colors.pink[200]),
+              // label: Text('Add User'),
+               
+                // onPressed: () {
+                //   showDialog(
+                //       context: context,
+                //       builder: (context) {
+                //         return InviteDialog(roomId: widget.room.room_id);
+                //       });
+                // },
+                //child: const Text('Invite')
+                ),
           ],
         ),
         body: _messagesList());

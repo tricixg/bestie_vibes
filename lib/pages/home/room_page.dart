@@ -1,5 +1,7 @@
 import 'package:bestie_vibes/models/room_model.dart';
+import 'package:bestie_vibes/pages/new%20outing/new_group_title.dart';
 import 'package:bestie_vibes/pages/pages.dart';
+import 'package:bestie_vibes/widgets/room_card.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../../models/models.dart';
@@ -22,7 +24,6 @@ class RoomPage extends StatefulWidget {
 }
 
 class _RoomPageState extends SupabaseAuthState<RoomPage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +42,7 @@ class _RoomPageState extends SupabaseAuthState<RoomPage> {
 
           Navigator.of(context).push(
             MaterialPageRoute(builder: (context) {
-              return ChatRoomPage(room: room);
+              return newGroupTitle(room: room);
             }),
           );
         },
@@ -76,29 +77,28 @@ class _RoomPageState extends SupabaseAuthState<RoomPage> {
               return const Center(
                   child: Text('Create a group using the "+" button',
                       style: TextStyle(
-                          color: Color.fromARGB(255, 0, 0, 0),
-                          fontSize: 15)));
+                          color: Color.fromARGB(255, 0, 0, 0), fontSize: 15)));
             }
             return ListView.builder(
-            itemCount: rooms.length,
-            itemBuilder: (context, index) {
-              final room = rooms[index];
-              return ListTile(
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) {
-                      return ChatRoomPage(room: room);
-                    }),
-                  );
-                },
-                title: Text(room.name),
-              );
-            },
-          );
+              itemCount: rooms.length,
+              itemBuilder: (context, index) {
+                final room = rooms[index];
+                return roomCard(room: room);
+                // return ListTile(
+                //   onTap: () {
+                //     Navigator.of(context).push(
+                //       MaterialPageRoute(builder: (context) {
+                //         return ChatRoomPage(room: room);
+                //       }),
+                //     );
+                //   },
+                //   title: Text(room.name),
+                // );
+              },
+            );
           }),
     );
   }
-  
 
   @override
   void initState() {

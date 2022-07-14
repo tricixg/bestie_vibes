@@ -26,8 +26,8 @@ class AppRouter {
         return StatisticsPage.route();
       // case AddFriends.routeName:
       //   return AddFriends.route();
-      case NewOutingPage.routeName:
-        return NewOutingPage.route();
+      // case NewOutingPage.routeName:
+      //   return NewOutingPage.route();
       case RoomPage.routeName:
         return RoomPage.route();
       // case ChatRoomPage.routeName:
