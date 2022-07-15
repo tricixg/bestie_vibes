@@ -4,3 +4,6 @@ export 'custom_appbar.dart';
 export 'page_selector.dart';
 export 'old/invite_dialog.dart';
 export 'editTitle_dialog.dart';
+export 'room_card.dart';
+export 'roompart_card.dart';
+export 'deleteGroup_dialog.dart';

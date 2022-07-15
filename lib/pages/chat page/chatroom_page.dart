@@ -95,15 +95,20 @@ class _ChatRoomPageState extends AuthRequiredState<ChatRoomPage> {
           elevation: 0,
           title: Row(
             children: [
-              Expanded(
-                child: Image.asset(
+              
+             // Expanded(
+               // child: 
+                Image.asset(
                   'lib/assets/images/main.png',
                   height: 50,
                 ),
+                SizedBox(
+                width: 20,
               ),
-              Expanded(
-                  flex: 2,
-                  child: 
+             // ),
+             // Expanded(
+                  // flex: 2,
+                  // child: 
                   TextButton(
                     onPressed: () {
                       showDialog(
@@ -119,7 +124,7 @@ class _ChatRoomPageState extends AuthRequiredState<ChatRoomPage> {
                       style: Theme.of(context).textTheme.headline2,
                     ),
                   ),
-                  )
+                //  )
             ],
           ),
           actions: [

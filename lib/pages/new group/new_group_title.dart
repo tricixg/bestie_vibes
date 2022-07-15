@@ -40,10 +40,17 @@ class _newGroupTitleState extends AuthRequiredState<newGroupTitle> {
           // onPressed: () {
           //   Navigator.pushNamed(context, '/swipe');
           // },
-          onPressed: () {
+          onPressed: () async {
+            final res = await Supabase.instance.client
+              .from('rooms')
+              .update({
+                'name': _titleController.text,
+              })
+              .eq('room_id', widget.room.room_id)
+              .execute();
             Navigator.of(context).push(
               MaterialPageRoute(builder: (context) {
-                return addUserPage(room: widget.room);
+                return newAddUserPage(room: widget.room);
               }),
             );  
           },
@@ -62,18 +69,18 @@ class _newGroupTitleState extends AuthRequiredState<newGroupTitle> {
               // ElevatedButton(
               //   onPressed: () {}, 
               //   child: Text('Search'))
-            TextButton(
-                onPressed: () async {
-                  final res = await Supabase.instance.client
-                      .from('rooms')
-                      .update({
-                        'name': _titleController.text,
-                      })
-                      .eq('room_id', widget.room.room_id)
-                      .execute();
-                  //Navigator.of(context).pop();
-                },
-                child: const Text('Save'))
+            // TextButton(
+            //     onPressed: () async {
+            //       final res = await Supabase.instance.client
+            //           .from('rooms')
+            //           .update({
+            //             'name': _titleController.text,
+            //           })
+            //           .eq('room_id', widget.room.room_id)
+            //           .execute();
+            //       //Navigator.of(context).pop();
+            //     },
+            //     child: const Text('Save'))
             ],
           ),
         ));

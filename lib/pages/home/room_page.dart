@@ -1,5 +1,5 @@
 import 'package:bestie_vibes/models/room_model.dart';
-import 'package:bestie_vibes/pages/new%20outing/new_group_title.dart';
+import 'package:bestie_vibes/pages/new%20group/new_group_title.dart';
 import 'package:bestie_vibes/pages/pages.dart';
 import 'package:bestie_vibes/widgets/room_card.dart';
 import 'package:flutter/material.dart';

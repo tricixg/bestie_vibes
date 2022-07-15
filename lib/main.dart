@@ -1,7 +1,7 @@
 
 import 'package:bestie_vibes/config/app_router.dart';
 import 'package:bestie_vibes/models/outing_model.dart';
-import 'package:bestie_vibes/pages/new%20outing/chatroom_page.dart';
+import 'package:bestie_vibes/pages/chat%20page/chatroom_page.dart';
 import 'package:bestie_vibes/pages/home/home_page.dart';
 import 'package:bestie_vibes/pages/home/room_page.dart';
 import 'package:flutter/material.dart';

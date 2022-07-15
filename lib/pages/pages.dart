@@ -7,5 +7,6 @@ export 'old/oldchat_screen.dart';
 export 'new outing/swipe_page.dart';
 export 'home/memories_page.dart';
 export 'home/statistics_page.dart';
-export 'new outing/add_users.dart';
-export 'new outing/chatroom_page.dart';
+export 'chat page/add_users.dart';
+export 'chat page/chatroom_page.dart';
+export 'new group/new_grp_adduser.dart';

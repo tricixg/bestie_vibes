@@ -1,5 +1,5 @@
 import 'package:bestie_vibes/pages/old/add_friends.dart';
-import 'package:bestie_vibes/pages/new%20outing/chatroom_page.dart';
+import 'package:bestie_vibes/pages/chat%20page/chatroom_page.dart';
 import 'package:bestie_vibes/pages/pages.dart';
 import 'package:bestie_vibes/pages/home/room_page.dart';
 import 'package:flutter/material.dart';
