@@ -1,5 +1,7 @@
-import 'package:bestie_vibes/pages/add_friends.dart';
+import 'package:bestie_vibes/pages/old/add_friends.dart';
+import 'package:bestie_vibes/pages/chat%20page/chatroom_page.dart';
 import 'package:bestie_vibes/pages/pages.dart';
+import 'package:bestie_vibes/pages/home/room_page.dart';
 import 'package:flutter/material.dart';
 
 class AppRouter {
@@ -24,9 +26,14 @@ class AppRouter {
         return StatisticsPage.route();
       // case AddFriends.routeName:
       //   return AddFriends.route();
-      case NewOutingPage.routeName:
-        return NewOutingPage.route();
-
+      // case NewOutingPage.routeName:
+      //   return NewOutingPage.route();
+      case RoomPage.routeName:
+        return RoomPage.route();
+      // case ChatRoomPage.routeName:
+      //   return ChatRoomPage.route();
+      case SplashPage.routeName:
+        return SplashPage.route();
       default:
         return _errorRoute();
     }

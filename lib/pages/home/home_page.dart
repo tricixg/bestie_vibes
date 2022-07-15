@@ -1,5 +1,6 @@
-import 'package:bestie_vibes/pages/home/group_page.dart';
+import 'package:bestie_vibes/pages/old/oldgroup_page.dart';
 import 'package:bestie_vibes/pages/pages.dart';
+import 'package:bestie_vibes/pages/home/room_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:bestie_vibes/components/auth_state.dart';
@@ -23,7 +24,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends AuthState<HomePage> {
   int _selectedIndex = 0;
-  final List<Widget> screens = [ GroupPage(), MemoriesPage(), StatisticsPage(), ProfilePage()];
+  final List<Widget> screens = [ RoomPage(), MemoriesPage(), StatisticsPage(), ProfilePage()];
   @override
   void initState() {
     super.initState();

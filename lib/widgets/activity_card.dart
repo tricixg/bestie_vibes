@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import '/models/models.dart';
 
@@ -35,7 +36,7 @@ class ActivityCard extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              '${activity.name}',
+                              activity.name,
                               textAlign: TextAlign.center,
                               style: Theme.of(context)
                                   .textTheme
@@ -46,7 +47,7 @@ class ActivityCard extends StatelessWidget {
                                   ),
                             ),
                             Text(
-                              '${activity.address}',
+                              activity.address,
                               style: Theme.of(context)
                                   .textTheme
                                   .headline2!
@@ -57,7 +58,23 @@ class ActivityCard extends StatelessWidget {
                                   ),
                             ),
                             Text(
-                              "${activity.postal}",
+                              activity.postal,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 10,
+                              ),
+                            ),
+                            // Text(
+                            //   "${activity.price}",
+                            //   textAlign: TextAlign.center,
+                            //   style: TextStyle(
+                            //     color: Colors.black,
+                            //     fontSize: 10,
+                            //   ),
+                            // ),
+                            Text(
+                              activity.website,
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Colors.black,
@@ -65,7 +82,7 @@ class ActivityCard extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              "${activity.price}",
+                              activity.phone,
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Colors.black,
@@ -73,7 +90,7 @@ class ActivityCard extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              "${activity.website}",
+                              activity.opening,
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Colors.black,
@@ -81,7 +98,7 @@ class ActivityCard extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              "${activity.phone}",
+                              activity.type,
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Colors.black,
@@ -89,7 +106,7 @@ class ActivityCard extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              "${activity.opening}",
+                              activity.tag,
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Colors.black,
@@ -97,23 +114,7 @@ class ActivityCard extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              "${activity.type}",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 10,
-                              ),
-                            ),
-                            Text(
-                              "${activity.tag}",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 10,
-                              ),
-                            ),
-                            Text(
-                              "${activity.description}",
+                              activity.description,
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Colors.black,

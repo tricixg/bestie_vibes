@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '/models/models.dart';
 import 'package:bestie_vibes/utils/constants.dart';
-import '/services/users_service.dart';
+import 'profiles_service.dart';
 
 class UserGroupService {
   final BuildContext context;
