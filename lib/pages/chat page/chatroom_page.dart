@@ -75,7 +75,7 @@ class _ChatRoomPageState extends AuthRequiredState<ChatRoomPage> {
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            Navigator.pushNamed(context, '/swipe');
+            Navigator.pushNamed(context, '/datepicker');
           },
           backgroundColor: Color(0xFFFD6974),
           child: const Icon(Icons.add),
