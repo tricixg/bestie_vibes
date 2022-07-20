@@ -61,7 +61,7 @@ class _RoomPageState extends SupabaseAuthState<RoomPage> {
       body: StreamBuilder<List<Room>>(
           stream: Supabase.instance.client
               .from('rooms')
-              .stream(['room_id'])
+              .stream(['id'])
               .order('created_at')
               .execute()
               .map((maps) => maps.map(Room.fromMap).toList()),

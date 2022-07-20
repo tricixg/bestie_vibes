@@ -100,6 +100,7 @@ class _addUserPageState extends AuthRequiredState<addUserPage> {
                       .single()
                       .execute();
                   final data = res.data;
+
                   final error = res.error;
                   if (error != null && res.status != 406) {
                     context.showErrorSnackBar(message: error.message);
@@ -108,7 +109,7 @@ class _addUserPageState extends AuthRequiredState<addUserPage> {
                     final insertRes = await Supabase.instance.client
                         .from('room_participants')
                         .insert({
-                      'room_id': widget.room.room_id,
+                      'room_id': widget.room.id,
                       'profile_id': data['id'],
                     }).execute();
                     Navigator.of(context).push(
@@ -139,6 +140,7 @@ class _addUserPageState extends AuthRequiredState<addUserPage> {
                       ),
                     );
                   }
+
                   // Navigator.of(context).pop();
                 },
                 child: const Text('Invite'),
@@ -167,8 +169,7 @@ class _addUserPageState extends AuthRequiredState<addUserPage> {
                 height: MediaQuery.of(context).size.height / 1.7,
                 child: StreamBuilder<List<RoomPart>>(
                     stream: Supabase.instance.client
-                        .from(
-                            'room_participants:room_id=eq.${widget.room.room_id}')
+                        .from('room_participants:room_id=eq.${widget.room.id}')
                         .stream(['room_id'])
                         .order('created_at')
                         .execute()

@@ -45,27 +45,26 @@ class _newAddUserPageState extends AuthRequiredState<newAddUserPage> {
                 MaterialPageRoute(builder: (context) {
                   return HomePage();
                 }),
-              );             
+              );
             },
           ),
           backgroundColor: Colors.pink[50],
           elevation: 0,
           title: Row(
             children: [
-              
-        
-                Image.asset(
-                  'lib/assets/images/main.png',
-                  height: 50,
-                ),
-                SizedBox(
+              Image.asset(
+                'lib/assets/images/main.png',
+                height: 50,
+              ),
+              SizedBox(
                 width: 20,
               ),
-        
-                 Text(
-                      'ADD USERS',
-                      style: Theme.of(context).textTheme.headline2,
-                    ),
+
+              Text(
+                'ADD USERS',
+                style: Theme.of(context).textTheme.headline2,
+              ),
+
             ],
           ),
         ),
@@ -101,6 +100,7 @@ class _newAddUserPageState extends AuthRequiredState<newAddUserPage> {
                       .single()
                       .execute();
                   final data = res.data;
+
                   final error = res.error;
                   if (error != null && res.status != 406) {
                     context.showErrorSnackBar(message: error.message);
@@ -109,7 +109,7 @@ class _newAddUserPageState extends AuthRequiredState<newAddUserPage> {
                     final insertRes = await Supabase.instance.client
                         .from('room_participants')
                         .insert({
-                      'room_id': widget.room.room_id,
+                      'room_id': widget.room.id,
                       'profile_id': data['id'],
                     }).execute();
                     Navigator.of(context).push(
@@ -162,8 +162,7 @@ class _newAddUserPageState extends AuthRequiredState<newAddUserPage> {
                 height: MediaQuery.of(context).size.height / 1.7,
                 child: StreamBuilder<List<RoomPart>>(
                     stream: Supabase.instance.client
-                        .from(
-                            'room_participants:room_id=eq.${widget.room.room_id}')
+                        .from('room_participants:room_id=eq.${widget.room.id}')
                         .stream(['room_id'])
                         .order('created_at')
                         .execute()
@@ -187,7 +186,10 @@ class _newAddUserPageState extends AuthRequiredState<newAddUserPage> {
                         itemCount: parts.length,
                         itemBuilder: (context, index) {
                           final roompart = parts[index];
-                          return roomPartCard(roomPart: roompart, rooms: widget.room,);
+                          return roomPartCard(
+                            roomPart: roompart,
+                            rooms: widget.room,
+                          );
                         },
                       );
                     }),
