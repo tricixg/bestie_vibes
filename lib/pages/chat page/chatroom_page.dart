@@ -1,6 +1,5 @@
 import 'dart:async';
 
-
 import 'package:bestie_vibes/pages/home/room_page.dart';
 import 'package:bestie_vibes/pages/pages.dart';
 import 'package:flutter/cupertino.dart';
@@ -35,7 +34,7 @@ class _ChatRoomPageState extends AuthRequiredState<ChatRoomPage> {
   @override
   void initState() {
     _messagesListener = Supabase.instance.client
-        .from('messages:room_id=eq.${widget.room.room_id}')
+        .from('messages:room_id=eq.${widget.room.id}')
         .stream(['id'])
         .order('created_at')
         .execute()
@@ -88,43 +87,42 @@ class _ChatRoomPageState extends AuthRequiredState<ChatRoomPage> {
                 MaterialPageRoute(builder: (context) {
                   return HomePage();
                 }),
-              );             
+              );
             },
           ),
           backgroundColor: Colors.pink[50],
           elevation: 0,
           title: Row(
             children: [
-              
-             // Expanded(
-               // child: 
-                Image.asset(
-                  'lib/assets/images/main.png',
-                  height: 50,
-                ),
-                SizedBox(
+              // Expanded(
+              // child:
+              Image.asset(
+                'lib/assets/images/main.png',
+                height: 50,
+              ),
+              SizedBox(
                 width: 20,
               ),
-             // ),
-             // Expanded(
-                  // flex: 2,
-                  // child: 
-                  TextButton(
-                    onPressed: () {
-                      showDialog(
-                          context: context,
-                          builder: (context) {
-                            return EditTitleDialog(
-                              room: widget.room,
-                            );
-                          });
-                    },
-                    child: Text(
-                      '${widget.room.name}',
-                      style: Theme.of(context).textTheme.headline2,
-                    ),
-                  ),
-                //  )
+              // ),
+              // Expanded(
+              // flex: 2,
+              // child:
+              TextButton(
+                onPressed: () {
+                  showDialog(
+                      context: context,
+                      builder: (context) {
+                        return EditTitleDialog(
+                          room: widget.room,
+                        );
+                      });
+                },
+                child: Text(
+                  '${widget.room.name}',
+                  style: Theme.of(context).textTheme.headline2,
+                ),
+              ),
+              //  )
             ],
           ),
           actions: [
@@ -135,19 +133,19 @@ class _ChatRoomPageState extends AuthRequiredState<ChatRoomPage> {
                     return addUserPage(room: widget.room);
                   }),
                 );
-              }, 
+              },
               icon: Icon(CupertinoIcons.person_2_fill, color: Colors.pink[200]),
               // label: Text('Add User'),
-               
-                // onPressed: () {
-                //   showDialog(
-                //       context: context,
-                //       builder: (context) {
-                //         return InviteDialog(roomId: widget.room.room_id);
-                //       });
-                // },
-                //child: const Text('Invite')
-                ),
+
+              // onPressed: () {
+              //   showDialog(
+              //       context: context,
+              //       builder: (context) {
+              //         return InviteDialog(roomId: widget.room.room_id);
+              //       });
+              // },
+              //child: const Text('Invite')
+            ),
           ],
         ),
         body: _messagesList());
@@ -200,13 +198,11 @@ class chatBubble extends StatelessWidget {
     required this.userId,
     required this.message,
     required this.profileCache,
-
   }) : super(key: key);
 
   final String? userId;
   final Message message;
   final Map<String, Profile> profileCache;
-
 
   @override
   Widget build(BuildContext context) {
@@ -237,6 +233,4 @@ class chatBubble extends StatelessWidget {
       ),
     );
   }
-  }
-
-
+}

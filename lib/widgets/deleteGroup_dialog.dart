@@ -34,7 +34,7 @@ class deleteGroupDialog extends StatelessWidget {
                   final res = await Supabase.instance.client
                       .from('rooms')
                       .delete()
-                      .eq('room_id', room.room_id)
+                      .eq('id', room.id)
                       .execute();
                   Navigator.of(context).push(
                     MaterialPageRoute(builder: (context) {

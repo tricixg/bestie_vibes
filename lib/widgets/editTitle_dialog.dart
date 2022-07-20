@@ -40,13 +40,14 @@ class EditTitleDialog extends StatelessWidget {
                       .update({
                         'name': _titleController.text,
                       })
-                      .eq('room_id', room.room_id)
+                      .eq('id', room.id)
                       .execute();
-                Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) {
-                    return HomePage();
-                  }),
-                );                 },
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) {
+                      return HomePage();
+                    }),
+                  );
+                },
                 child: const Text('Save'))
           ],
         ),
@@ -56,12 +57,12 @@ class EditTitleDialog extends StatelessWidget {
             icon: Icon(Icons.delete),
             onPressed: () async {
               showDialog(
-                context: context,
-                builder: (context) {
-                  return deleteGroupDialog(
-                    room: room,
-                  );
-                });
+                  context: context,
+                  builder: (context) {
+                    return deleteGroupDialog(
+                      room: room,
+                    );
+                  });
             },
             label: Text('Delete Group'),
           ),
@@ -70,4 +71,3 @@ class EditTitleDialog extends StatelessWidget {
     );
   }
 }
-
