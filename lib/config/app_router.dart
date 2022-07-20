@@ -1,3 +1,4 @@
+import 'package:bestie_vibes/pages/new%20outing/date_picker.dart';
 import 'package:bestie_vibes/pages/old/add_friends.dart';
 import 'package:bestie_vibes/pages/chat%20page/chatroom_page.dart';
 import 'package:bestie_vibes/pages/pages.dart';
@@ -34,6 +35,8 @@ class AppRouter {
       //   return ChatRoomPage.route();
       case SplashPage.routeName:
         return SplashPage.route();
+      case DatePickerPage.routeName:
+        return DatePickerPage.route();
       default:
         return _errorRoute();
     }

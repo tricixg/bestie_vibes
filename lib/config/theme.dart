@@ -4,7 +4,7 @@ ThemeData theme() {
   return ThemeData(
     scaffoldBackgroundColor: Colors.pink[50],
     colorScheme: ColorScheme(
-      primary: Color.fromARGB(255, 253, 186, 192),
+      primary: Color.fromRGBO(253, 186, 192, 1),
       primaryVariant: Color(0xFFFD6974),
       secondary: Color.fromARGB(255, 254, 143, 152),
       secondaryVariant: Color(0xFFFB4754),

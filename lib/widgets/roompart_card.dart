@@ -25,6 +25,7 @@ class roomPartCard extends StatelessWidget {
 
           switch (snapshot.connectionState) {
             case ConnectionState.done:
+            
               return ListTile(
                 title: Text(profile.username),
                 trailing: IconButton(

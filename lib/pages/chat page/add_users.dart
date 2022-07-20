@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:bestie_vibes/models/profile_model.dart';
 import 'package:bestie_vibes/models/room_model.dart';
 import 'package:bestie_vibes/models/room_participants_model.dart';
@@ -88,7 +90,7 @@ class _addUserPageState extends AuthRequiredState<addUserPage> {
                 controller: _usernameController,
                 decoration: const InputDecoration(labelText: 'User Name'),
               ),
-              TextButton(
+              ElevatedButton(
                 onPressed: () async {
                   final username = _usernameController.text;
                   final res = await Supabase.instance.client
@@ -98,24 +100,73 @@ class _addUserPageState extends AuthRequiredState<addUserPage> {
                       .single()
                       .execute();
                   final data = res.data;
-                  final insertRes = await Supabase.instance.client
-                      .from('room_participants')
-                      .insert({
-                    'room_id': widget.room.id,
-                    'profile_id': data['id'],
-                  }).execute();
-                  Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) {
-                      return addUserPage(room: widget.room);
-                    }),
-                  );
+
+                  final error = res.error;
+                  if (error != null && res.status != 406) {
+                    context.showErrorSnackBar(message: error.message);
+                  }
+                  if (data != null) {
+                    final insertRes = await Supabase.instance.client
+                        .from('room_participants')
+                        .insert({
+                      'room_id': widget.room.id,
+                      'profile_id': data['id'],
+                    }).execute();
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) {
+                        return addUserPage(room: widget.room);
+                      }),
+                    );
+                  } else {
+                    showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        title: Text(
+                          'User not found',
+                          style: TextStyle(color: Colors.red, fontSize: 20),
+                        ),
+                        content: Text(
+                          'Please check the username',
+                          style: TextStyle(fontSize: 15),
+                        ),
+                        actions: [
+                          FlatButton(
+                            child: Text('OK'),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                          ),
+                        ],
+                      ),
+                    );
+                  }
+
                   // Navigator.of(context).pop();
                 },
                 child: const Text('Invite'),
               ),
+              Container(
+                child: FutureBuilder<int>(
+                  future: _noOfUsers(room: widget.room),
+                  builder: (ctx, snapshot) {
+                    if(snapshot.data == null) {
+                      return Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
+                    int number = snapshot.data!;
+                    switch (snapshot.connectionState) {
+                      case ConnectionState.done:
+                        return Text('${number}' + ' users invited');
+                      default:
+                        return Text('Loading...');
+                    }
+                  },
+                ),
+              ),
               SizedBox(
                 width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height / 1.4,
+                height: MediaQuery.of(context).size.height / 1.7,
                 child: StreamBuilder<List<RoomPart>>(
                     stream: Supabase.instance.client
                         .from('room_participants:room_id=eq.${widget.room.id}')
@@ -138,6 +189,7 @@ class _addUserPageState extends AuthRequiredState<addUserPage> {
                                     color: Color.fromARGB(255, 0, 0, 0),
                                     fontSize: 15)));
                       }
+
                       return ListView.builder(
                         itemCount: parts.length,
                         itemBuilder: (context, index) {
@@ -154,4 +206,14 @@ class _addUserPageState extends AuthRequiredState<addUserPage> {
           ),
         ));
   }
+}
+
+Future<int> _noOfUsers( {required Room room}) async {
+  final response = await Supabase.instance.client
+      .from('room_participants')
+      .select()
+      .eq('room_id', room.room_id)
+      .execute(count: CountOption.exact);
+  final count = response.count;
+  return count!.toInt();
 }
