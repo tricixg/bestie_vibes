@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import '/models/models.dart';
 
@@ -30,14 +29,14 @@ class ActivityCard extends StatelessWidget {
                 child: Stack(
                   children: [
                     Positioned(
-                        bottom: 30,
-                        left: 20,
+                        top: 420,
+                        left: 22,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               activity.name,
-                              textAlign: TextAlign.center,
+                              textAlign: TextAlign.left,
                               style: Theme.of(context)
                                   .textTheme
                                   .headline2!
@@ -47,79 +46,46 @@ class ActivityCard extends StatelessWidget {
                                   ),
                             ),
                             Text(
-                              activity.address,
+                              '\$' * activity.price + " | " + activity.type + " for: " + activity.tag,
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold
+                              ),
+                            ),
+                            Text(
+                              activity.address + ", S" + activity.postal,
+                              textAlign: TextAlign.left,
                               style: Theme.of(context)
                                   .textTheme
                                   .headline2!
                                   .copyWith(
                                     color: Colors.black,
-                                    fontSize: 15,
+                                    fontSize: 12,
                                     fontWeight: FontWeight.normal,
+                                    height: 2.5
                                   ),
                             ),
                             Text(
-                              activity.postal,
-                              textAlign: TextAlign.center,
+                              activity.opening + "\n",
+                              textAlign: TextAlign.left,
                               style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 10,
                               ),
                             ),
-                            // Text(
-                            //   "${activity.price}",
-                            //   textAlign: TextAlign.center,
-                            //   style: TextStyle(
-                            //     color: Colors.black,
-                            //     fontSize: 10,
-                            //   ),
-                            // ),
-                            Text(
-                              activity.website,
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 10,
-                              ),
-                            ),
-                            Text(
-                              activity.phone,
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 10,
-                              ),
-                            ),
-                            Text(
-                              activity.opening,
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 10,
-                              ),
-                            ),
-                            Text(
-                              activity.type,
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 10,
-                              ),
-                            ),
-                            Text(
-                              activity.tag,
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 10,
-                              ),
-                            ),
-                            Text(
+                            SizedBox(
+                                width: MediaQuery.of(context).size.width / 1.25, //this is the total width of your screen
+                                child: Text(
                               activity.description,
-                              textAlign: TextAlign.center,
+                              textAlign: TextAlign.left,
                               style: TextStyle(
                                 color: Colors.black,
-                                fontSize: 10,
+                                fontSize: 12,
+                                fontStyle: FontStyle.italic,
                               ),
+                            ),
                             ),
                           ],
                         )),
