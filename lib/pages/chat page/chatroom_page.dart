@@ -96,13 +96,13 @@ class _ChatRoomPageState extends AuthRequiredState<ChatRoomPage> {
             children: [
               // Expanded(
               // child:
-              Image.asset(
-                'lib/assets/images/main.png',
-                height: 50,
-              ),
-              SizedBox(
-                width: 20,
-              ),
+              // Image.asset(
+              //   'lib/assets/images/main.png',
+              //   height: 50,
+              // ),
+              // SizedBox(
+              //   width: 20,
+              // ),
               // ),
               // Expanded(
               // flex: 2,
@@ -118,8 +118,12 @@ class _ChatRoomPageState extends AuthRequiredState<ChatRoomPage> {
                       });
                 },
                 child: Text(
-                  '${widget.room.name}',
-                  style: Theme.of(context).textTheme.headline2,
+                  widget.room.name.length > 17
+                      ? widget.room.name.substring(0, 15) + "..."
+                      : widget.room.name,
+                  style: Theme.of(context).textTheme.headline2!.copyWith(
+                        fontSize: 21,
+                      ),
                 ),
               ),
               //  )

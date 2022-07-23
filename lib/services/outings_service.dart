@@ -28,12 +28,9 @@ class OutingsService {
   // users must belong to that group
   // returns list of outings
   // group id should be stored in the group page to be used as input arg
-  Future<List<Outing>> getGroupOutings(BigInt groupId) async {
-    final response = await supabase
-        .from('outings')
-        .select()
-        .eq('group_id', groupId)
-        .execute();
+  Future<List<Outing>> getRoomOutings(String roomId) async {
+    final response =
+        await supabase.from('outings').select().eq('room_id', roomId).execute();
     final error = response.error;
     if (error != null && response.status != 406) {
       context.showErrorSnackBar(message: error.message);
@@ -50,9 +47,9 @@ class OutingsService {
   // users must belong to that group
   // returns created outing
   // PLEASE put outing id somewhere on the outing page to be inputted into other functions
-  Future<Outing?> createOuting(BigInt groupId) async {
+  Future<Outing?> createOuting(String roomId) async {
     final response =
-        await supabase.from('outings').insert({'group_id': groupId}).execute();
+        await supabase.from('outings').insert({'room_id': roomId}).execute();
     final error = response.error;
     if (error != null && response.status != 406) {
       context.showErrorSnackBar(message: error.message);
@@ -67,8 +64,7 @@ class OutingsService {
   // for users to update the outing activity
   // users must belong to the group of that outing (RLS policy)
   // returns updated outing
-  Future<Outing?> updateOutingActivity(
-      BigInt outingId, BigInt newActivity) async {
+  Future<Outing?> updateOutingActivity(String outingId, int newActivity) async {
     final response = await supabase
         .from('outings')
         .update({'activity_id': newActivity})
@@ -85,14 +81,14 @@ class OutingsService {
     return null;
   }
 
-  // for users to update the outing timeblock
+  // for users to update the outing date
   // users must belong to the group of that outing (RLS policy)
   // returns updated outing
-  Future<Outing?> updateOutingTimeblock(
-      BigInt outingId, BigInt newTimeblock) async {
+  Future<Outing?> updateOutingDate(String outingId, DateTime newDate) async {
+    // i think need to remove time from datetime object by formatting
     final response = await supabase
         .from('outings')
-        .update({'timeblock_id': newTimeblock})
+        .update({'date': newDate})
         .eq('id', outingId)
         .execute();
     final error = response.error;
@@ -109,7 +105,7 @@ class OutingsService {
   // for users to delete outing:
   // users must be member of the outing's group
   // returns boolean - true = deleted, false = unsuccessful
-  Future<bool> deleteOuting(BigInt id) async {
+  Future<bool> deleteOuting(String id) async {
     final response =
         await supabase.from('outings').delete().eq('id', id).execute();
     final error = response.error;
@@ -120,12 +116,13 @@ class OutingsService {
     return true;
   }
 
-  Outing toOuting(Map<String, dynamic> result) {
+  Outing toOuting(Map<String, dynamic> map) {
     return Outing(
-      id: result['id'] ?? 'id',
-      group_id: result['group_id'] ?? 'group_id',
-      activity_id: result['activity_id'] ?? 'activity_id',
-      timeblock_id: result['timeblock_id'] ?? 'timeblock_id',
+      id: map['id'],
+      createdAt: DateTime.parse(map['created_at']),
+      date: map['date'] != null ? DateTime.parse(map['date']) : null,
+      room_id: map['room_id'],
+      activity_id: map['activity_id'] ?? null,
     );
   }
 }

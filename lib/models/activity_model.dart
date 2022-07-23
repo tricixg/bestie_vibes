@@ -1,4 +1,3 @@
-
 import 'package:equatable/equatable.dart';
 
 class Activity extends Equatable {
@@ -33,16 +32,19 @@ class Activity extends Equatable {
   @override
   List<Object?> get props => [
         id,
-        name,
-        phone,
-        opening,
-        imageUrls,
-        tag,
-        description,
-        address,
-        postal,
-        website,
-        type,
-        price,
       ];
+
+  Activity.fromMap(Map<String, dynamic> map)
+      : id = map['id'] ?? 0,
+        name = map['name'] ?? 'Name',
+        phone = map['phone'] ?? 'Phone',
+        opening = map['opening'] ?? 'Opening',
+        imageUrls = map['image_url'] ?? 'Image Url',
+        tag = map['tag'] ?? 'Tag',
+        description = map['description'] ?? 'Description',
+        address = map['address'] ?? 'Address',
+        price = map['price'] ?? 0,
+        type = map['type'] ?? 'Type',
+        postal = map['postal'] ?? 'Postal',
+        website = map['website'] ?? 'Website';
 }

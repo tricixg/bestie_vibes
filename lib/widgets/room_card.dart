@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../models/models.dart';
 import '../pages/pages.dart';
@@ -15,17 +16,16 @@ class roomCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {                
-          Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) {
-              return ChatRoomPage(room: room);
-            }),
-          );          
-        },
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(builder: (context) {
+            return ChatRoomPage(room: room);
+          }),
+        );
+      },
       child: Container(
         margin: EdgeInsets.only(top: 5.0, bottom: 5.0, right: 20.0),
-        padding:
-            EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+        padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
@@ -47,7 +47,9 @@ class roomCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      room.name,
+                      room.name.length > 19
+                          ? room.name.substring(0, 17) + "..."
+                          : room.name,
                       style: TextStyle(
                         color: Colors.grey[600],
                         fontSize: 20.0,
@@ -74,7 +76,7 @@ class roomCard extends StatelessWidget {
             Column(
               children: <Widget>[
                 Text(
-                  room.createdAt.toString(),
+                  DateFormat("dd-MM-yyyy").format(room.createdAt),
                   style: TextStyle(
                     color: Colors.grey,
                     fontSize: 12.0,

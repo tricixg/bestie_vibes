@@ -13,9 +13,9 @@ class SwipesService {
   // get activityid from card, get outingid from page - store these in the page!
   // returns created swipe record
   Future<Swipe?> createSwipe(
-      String userId, BigInt activityId, BigInt outingId) async {
+      String profileId, int activityId, String outingId) async {
     final response = await supabase.from('swipes').insert({
-      'user_id': userId,
+      'profile_id': profileId,
       'activity_id': activityId,
       'outing_id': outingId
     }).execute();
@@ -33,7 +33,7 @@ class SwipesService {
   // for users to view swipes for an outing
   // they must belong to group of that outing
   // get outingId from page
-  Future<List<Swipe>> getOutingSwipes(BigInt outingId) async {
+  Future<List<Swipe>> getOutingSwipes(String outingId) async {
     final response = await supabase
         .from('swipes')
         .select()
@@ -52,12 +52,12 @@ class SwipesService {
 
   // TODO: return activity for outing with highest no. of swipes
 
-  Swipe toSwipe(Map<String, dynamic> result) {
+  Swipe toSwipe(Map<String, dynamic> map) {
     return Swipe(
-      id: result['id'] ?? 'id',
-      outing_id: result['outing_id'] ?? 'outing_id',
-      user_id: result['user_id'] ?? 'user_id',
-      activity_id: result['activity_id'] ?? 'activity_id',
+      outing_id: map['outing_id'],
+      profile_id: map['profile_id'],
+      createdAt: DateTime.parse(map['created_at']),
+      activity_id: map['activity_id'],
     );
   }
 }
