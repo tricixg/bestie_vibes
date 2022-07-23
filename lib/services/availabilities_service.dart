@@ -8,14 +8,15 @@ class AvailabilitiesService {
 
   AvailabilitiesService(this.context);
 
-  // for users to state their availability for an outing for a timeblock:
-  // refer to groups_service file to see comment on how to get user id
+  // for profiles to state their availability for an outing for a timeblock:
+  // refer to groups_service file to see comment on how to get profile id
   // returns the created availability record
   Future<Availability?> stateAvailability(
-      String userId, BigInt timeblockId, BigInt outingId) async {
+      String profileId, String outingId, DateTime date) async {
+    // i think need to remove time from DateTime object
     final response = await supabase.from('availabilities').insert({
-      'user_id': userId,
-      'timeblock_id': timeblockId,
+      'profile_id': profileId,
+      'date': date,
       'outing_id': outingId
     }).execute();
     final error = response.error;
@@ -29,10 +30,10 @@ class AvailabilitiesService {
     return null;
   }
 
-  // for users to view member availabilities for an outing:
+  // for profiles to view member availabilities for an outing:
   // supabase RLS policies only allow if member is part of the group for that outing
   // returns list of availabilities
-  Future<List<Availability>> getOutingAvailabilities(BigInt outingId) async {
+  Future<List<Availability>> getOutingAvailabilities(String outingId) async {
     final response = await supabase
         .from('availabilities')
         .select()
@@ -51,12 +52,12 @@ class AvailabilitiesService {
 
 // TODO: Get timeblocks where everyone is available for particular outing
 
-  Availability toAvailability(Map<String, dynamic> result) {
+  Availability toAvailability(Map<String, dynamic> map) {
     return Availability(
-      id: result['id'] ?? 'id',
-      user_id: result['user_id'] ?? 'user_id',
-      timeblock_id: result['timeblock_id'] ?? 'timeblock_id',
-      outing_id: result['outing_id'] ?? 'outing_id',
+      date: DateTime.parse(map['date']),
+      profile_id: map['name'],
+      createdAt: DateTime.parse(map['created_at']),
+      outing_id: map['outing_id'],
     );
   }
 }

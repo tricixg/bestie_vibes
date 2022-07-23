@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 import '/models/models.dart';
 import 'package:bestie_vibes/utils/constants.dart';
 
-class UsersService {
+class ProfilesService {
   final BuildContext context;
 
-  UsersService(this.context);
+  ProfilesService(this.context);
 
-  // for users to view all public profiles:
-  Future<List<Profile>> getUsers() async {
+  // for profiles to view all public profiles:
+  Future<List<Profile>> getProfiles() async {
     final response = await supabase.from('profiles').select().execute();
     final error = response.error;
     if (error != null && response.status != 406) {
@@ -18,15 +18,14 @@ class UsersService {
     }
     final data = response.data as List<dynamic>;
     if (data != null) {
-      return data.map((e) => toUser(e)).toList();
+      return data.map((e) => toProfile(e)).toList();
     }
     return [];
   }
 
-
-  // for users to fetch a user by username (search for a username)
-  // returns user if exists, otherwise return null
-  Future<Profile?> getUser(String username) async {
+  // for profiles to fetch a profile by username (search for a username)
+  // returns profile if exists, otherwise return null
+  Future<Profile?> getProfile(String username) async {
     final response = await supabase
         .from('profiles')
         .select()
@@ -38,18 +37,17 @@ class UsersService {
     }
     final data = response.data as List<dynamic>;
     if (data != null) {
-      return toUser(data[0]);
+      return toProfile(data[0]);
     }
     return null;
   }
 
-
-  Profile toUser(Map<String, dynamic> result) {
+  Profile toProfile(Map<String, dynamic> map) {
     return Profile(
-      id: result['id'] ?? 'id',
-      username: result['username'] ?? 'username',
-      avatar_url: result['avatar_url'] ?? 'avatar_url',
-      favouritecolour: result['favouritecolour'] ?? 'favouritecolour',
+      id: map['id'] ?? '',
+      username: map['username'] ?? 'No Username',
+      avatar_url: map['avatar_url'],
+      favouritecolour: map['favouritecolour'],
     );
   }
 }

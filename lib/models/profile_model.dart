@@ -3,8 +3,8 @@ import 'package:equatable/equatable.dart';
 class Profile extends Equatable {
   final String id;
   final String username;
-  final String avatar_url;
-  final String favouritecolour;
+  final String? avatar_url;
+  final String? favouritecolour;
 
   const Profile({
     required this.id,
@@ -19,8 +19,8 @@ class Profile extends Equatable {
       ];
 
   Profile.fromMap(Map<String, dynamic> map)
-      : id = map['id']?? '',
-        username = map['username'] ?? 'hi',
-        avatar_url = map['avatar_url']?? '',
-        favouritecolour = map['favouritecolour'] ?? '';
+      : id = map['id'] ?? '',
+        username = map['username'] ?? 'No Username',
+        avatar_url = map['avatar_url'],
+        favouritecolour = map['favouritecolour'];
 }

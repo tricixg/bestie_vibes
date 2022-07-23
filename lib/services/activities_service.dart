@@ -16,27 +16,25 @@ class ActivitiesService {
     }
     final List<dynamic> data = response.data;
     if (data != null) {
-      print('hello');
       return data.map((e) => toActivity(e)).toList();
     }
-    print('hi');
     return [];
   }
 
- Activity toActivity(Map<String, dynamic> result) {
+  Activity toActivity(Map<String, dynamic> map) {
     return Activity(
-      id: result['id'] ?? 'id',
-      name: result['name'] ?? 'name',
-      phone: result['phone'] ?? 'phone',
-      opening: result['opening'] ?? 'opening',
-      imageUrls: result['image_url'] ?? 'imageUrls',
-      tag: result['tag'] ?? 'tag',
-      description: result['description'] ?? 'description',
-      address: result['address'] ?? 'address',
-      price: result['price'] ?? 'price',
-      type: result['type'] ?? 'type',
-      postal: result['postal'] ?? 'postal',
-      website: result['website'] ?? 'website',
+      id: map['id'] ?? 0,
+      name: map['name'] ?? 'Name',
+      phone: map['phone'] ?? 'Phone',
+      opening: map['opening'] ?? 'Opening',
+      imageUrls: map['image_url'] ?? 'Image Url',
+      tag: map['tag'] ?? 'Tag',
+      description: map['description'] ?? 'Description',
+      address: map['address'] ?? 'Address',
+      price: map['price'] ?? 0,
+      type: map['type'] ?? 'Type',
+      postal: map['postal'] ?? 'Postal',
+      website: map['website'] ?? 'Website',
     );
   }
 }

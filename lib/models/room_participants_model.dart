@@ -10,7 +10,7 @@ class RoomPart {
   });
 
   RoomPart.fromMap(Map<String, dynamic> map)
-      : room_id = map['room_id'] ?? '',
-        profile_id = map['profile_id'] ?? '',
-        createdAt = DateTime.parse(map['created_at']?? '');
+      : room_id = map['room_id'],
+        profile_id = map['profile_id'],
+        createdAt = DateTime.parse(map['created_at']);
 }
