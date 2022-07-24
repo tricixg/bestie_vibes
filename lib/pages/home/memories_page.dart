@@ -25,11 +25,11 @@ class _MemoriesPageState extends AuthRequiredState<MemoriesPage> {
 
   @override
   Widget build(BuildContext context) {
-   return Scaffold(
-        appBar: CustomAppBar(
-          title: 'MEMORIES',
-        ),
-        body:  Row(
+    return Scaffold(
+      appBar: CustomAppBar(
+        title: 'MEMORIES',
+      ),
+      body: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -43,8 +43,10 @@ class _MemoriesPageState extends AuthRequiredState<MemoriesPage> {
                   height: 200,
                 ),
               ),
-              Text('COMING SOON',
-              style: Theme.of(context).textTheme.headline2,)
+              Text(
+                'COMING SOON',
+                style: Theme.of(context).textTheme.headline2,
+              )
             ],
           ),
         ],

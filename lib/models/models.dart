@@ -10,3 +10,4 @@ export 'old/message_model.dart';
 export 'profile_model.dart';
 export 'messages_model.dart';
 export 'room_model.dart';
+export 'data_model.dart';
