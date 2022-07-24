@@ -10,8 +10,8 @@ import 'package:bestie_vibes/components/auth_required_state.dart';
 class newOutingTitle extends StatefulWidget {
   //static const String routeName = '/newouting';
 
-  const newOutingTitle({Key? key, required this.outing}) : super(key: key);
-  final Outing outing;
+  const newOutingTitle({Key? key, required this.room}) : super(key: key);
+  final Room room;
 
   // static Route route() {
   //   return MaterialPageRoute(
@@ -43,16 +43,31 @@ class _newOutingTitleState extends AuthRequiredState<newOutingTitle> {
             //   Navigator.pushNamed(context, '/swipe');
             // },
             onPressed: () async {
-              final res = await Supabase.instance.client
-                  .from('outings')
-                  .update({
-                    'name': _titleController.text,
-                  })
-                  .eq('id', widget.outing.id)
-                  .execute();
+
+            final res = await Supabase.instance.client
+                .rpc('create_outing', params: {'room_id': '${widget.room.id}', 'name': '${_titleController.text}', 'creator_id': Supabase.instance.client.auth.user()?.id}).execute();
+            final data = res.data;
+            final error = res.error;
+            if (error != null) {
+              ScaffoldMessenger.of(context)
+                  .showSnackBar(SnackBar(content: Text(error.message)));
+              return;
+            }
+            final outing = Outing.fromMap(data);
+            // final userId = Supabase.instance.client.auth.user()?.id;
+
+
+            // final insertres = await Supabase.instance.client
+            //     .from('outings')
+            //     .update({
+            //       'creator_id': userId,
+            //     })
+            //     .eq('id', outing.id)
+            //     .execute();
+
               Navigator.of(context).push(
                 MaterialPageRoute(builder: (context) {
-                  return DatePickerPage(outing: widget.outing);
+                  return DatePickerPage(outing: outing);
                 }),
               );
             },

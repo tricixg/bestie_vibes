@@ -41,6 +41,7 @@ class _newGroupTitleState extends AuthRequiredState<newGroupTitle> {
             //   Navigator.pushNamed(context, '/swipe');
             // },
             onPressed: () async {
+
               final res = await Supabase.instance.client
                   .from('rooms')
                   .update({

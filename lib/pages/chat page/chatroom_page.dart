@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bestie_vibes/pages/home/room_page.dart';
 import 'package:bestie_vibes/pages/pages.dart';
+import 'package:bestie_vibes/widgets/outing_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -75,20 +76,20 @@ class _ChatRoomPageState extends AuthRequiredState<ChatRoomPage> {
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: FloatingActionButton(
           onPressed: () async {
-            final res = await Supabase.instance.client
-                .rpc('create_outing', params: {'room_id': '${widget.room.id}'}).execute();
-            final data = res.data;
-            final error = res.error;
-            if (error != null) {
-              ScaffoldMessenger.of(context)
-                  .showSnackBar(SnackBar(content: Text(error.message)));
-              return;
-            }
-            final outing = Outing.fromMap(data);
+            // final res = await Supabase.instance.client
+            //     .rpc('create_outing', params: {'room_id': '${widget.room.id}'}).execute();
+            // final data = res.data;
+            // final error = res.error;
+            // if (error != null) {
+            //   ScaffoldMessenger.of(context)
+            //       .showSnackBar(SnackBar(content: Text(error.message)));
+            //   return;
+            // }
+            // final outing = Outing.fromMap(data);
 
             Navigator.of(context).push(
               MaterialPageRoute(builder: (context) {
-                return newOutingTitle(outing: outing);
+                return newOutingTitle(room: widget.room);
               }),
             );
             //Navigator.pushNamed(context, '/swipe');
@@ -211,8 +212,8 @@ class _ChatRoomPageState extends AuthRequiredState<ChatRoomPage> {
                         itemCount: outings.length,
                         itemBuilder: (context, index) {
                           final outing = outings[index];
-                          // return roomCard(room: room);
-                          return ListTile(
+                          return outingCard(outing: outing, room: widget.room,);
+                          //return ListTile(
                             // onTap: () {
                             //   Navigator.of(context).push(
                             //     MaterialPageRoute(builder: (context) {
@@ -220,8 +221,8 @@ class _ChatRoomPageState extends AuthRequiredState<ChatRoomPage> {
                             //     }),
                             //   );
                             // },
-                            title: Text(outing.name),
-                          );
+                            //title: Text(outing.name),
+                          //);
                         },
                       );
                     }),
@@ -287,9 +288,8 @@ class chatBubble extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      elevation: 4,
-      borderRadius: BorderRadius.circular(4),
-      color: userId == message.profileId ? Colors.grey[300] : Colors.blue[200],
+      borderRadius: BorderRadius.circular(10),
+      color: userId == message.profileId ? Color.fromARGB(255, 255, 255, 255) : Color.fromARGB(255, 242, 140, 147),
       child: Padding(
         padding: const EdgeInsets.all(8),
         child: Column(
@@ -299,13 +299,14 @@ class chatBubble extends StatelessWidget {
               profileCache[message.profileId]?.username ?? 'loading...',
               style: const TextStyle(
                 color: Colors.black54,
-                fontSize: 14,
+                fontSize: 18,
               ),
             ),
             Text(
               message.content,
               style: const TextStyle(
                 color: Colors.black,
+                fontSize: 13
               ),
             ),
           ],

@@ -1,4 +1,5 @@
 import 'package:bestie_vibes/widgets/widgets.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase/supabase.dart';
 import 'package:bestie_vibes/components/auth_required_state.dart';
@@ -148,11 +149,11 @@ class _ProfilePageState extends AuthRequiredState<ProfilePage> {
             decoration: const InputDecoration(labelText: 'Favourite Colour'),
           ),
           const SizedBox(height: 18),
-          ElevatedButton(
+          CupertinoButton.filled(
               onPressed: _updateProfile,
               child: Text(_loading ? 'Saving...' : 'Update')),
           const SizedBox(height: 18),
-          ElevatedButton(onPressed: _signOut, child: const Text('Sign Out')),
+          CupertinoButton.filled(onPressed: _signOut, child: const Text('Sign Out')),
         ],
       ),
     );

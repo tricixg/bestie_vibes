@@ -2,6 +2,7 @@ import 'package:bestie_vibes/models/room_model.dart';
 import 'package:bestie_vibes/pages/new%20group/new_group_title.dart';
 import 'package:bestie_vibes/pages/pages.dart';
 import 'package:bestie_vibes/widgets/room_card.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../../models/models.dart';
@@ -68,7 +69,7 @@ class _RoomPageState extends SupabaseAuthState<RoomPage> {
           builder: (context, snapshot) {
             if (!snapshot.hasData) {
               return Center(
-                child: CircularProgressIndicator(),
+                child: CupertinoActivityIndicator(),
                 // Text('loading...'),
               );
             }

@@ -1,4 +1,5 @@
 import 'package:bestie_vibes/components/swipeBackground.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:swipe_cards/draggable_card.dart';
@@ -178,7 +179,7 @@ Widget _buildSwipeView(List<Activity> activity, context, Outing outing) {
                       await Supabase.instance.client.from('messages').insert({
                     'room_id': outing.room_id,
                     'profile_id': Supabase.instance.client.auth.user()?.id,
-                    'content': '${data['username']} has swiped',
+                    'content': '${data['username']} has swiped for ${outing.name}',
                   }).execute();
                 },
                 child: ChoiceButton(
@@ -209,7 +210,7 @@ Widget _buildLoadingScreen() {
     child: Container(
       width: 50,
       height: 50,
-      child: CircularProgressIndicator(),
+      child: CupertinoActivityIndicator(),
     ),
   );
 }
