@@ -1,3 +1,4 @@
+import 'package:bestie_vibes/pages/memory_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -138,7 +139,11 @@ class _ResultsPageState extends AuthRequiredState<ResultsPage> {
               ),
               ElevatedButton(
                   onPressed: () async {
-
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) {
+                        return MemoryPage(outing: widget.outing);
+                      }),
+                    );
                   },
                   child: Text('Memories'))
             ],
