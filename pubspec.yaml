@@ -40,6 +40,7 @@ dependencies:
   swipe_cards: ^1.0.0
   google_nav_bar: ^5.0.6
   intl: ^0.17.0
+  syncfusion_flutter_datepicker: ^20.2.39
 
 
 dev_dependencies:

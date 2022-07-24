@@ -16,8 +16,8 @@ class AppRouter {
         return PageDefault.route();
       case ProfilePage.routeName:
         return ProfilePage.route();
-      case SwipePage.routeName:
-        return SwipePage.route();
+      // case SwipePage.routeName:
+      //   return SwipePage.route();
       case HomePage.routeName:
         return HomePage.route();
       case MemoriesPage.routeName:

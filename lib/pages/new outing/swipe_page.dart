@@ -1,5 +1,6 @@
 import 'package:bestie_vibes/components/swipeBackground.dart';
 import 'package:flutter/material.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:swipe_cards/draggable_card.dart';
 import '../../utils/constants.dart';
 import '/models/models.dart';
@@ -10,14 +11,15 @@ import 'package:swipe_cards/swipe_cards.dart';
 class SwipePage extends StatefulWidget {
   static const String routeName = '/swipe';
 
-  const SwipePage({Key? key}) : super(key: key);
+  const SwipePage({Key? key, required this.outing}) : super(key: key);
+  final Outing outing;
 
-  static Route route() {
-    return MaterialPageRoute(
-      builder: (_) => SwipePage(),
-      settings: RouteSettings(name: routeName),
-    );
-  }
+  // static Route route() {
+  //   return MaterialPageRoute(
+  //     builder: (_) => SwipePage(),
+  //     settings: RouteSettings(name: routeName),
+  //   );
+  // }
 
   @override
   _SwipePageState createState() => _SwipePageState();
@@ -74,7 +76,7 @@ class _SwipePageState extends AuthRequiredState<SwipePage> {
               List<Activity> activity = snapshot.data ?? <Activity>[];
               switch (snapshot.connectionState) {
                 case ConnectionState.done:
-                  return _buildSwipeView(activity, context);
+                  return _buildSwipeView(activity, context, widget.outing);
                 default:
                   return _buildLoadingScreen();
               }
@@ -86,13 +88,23 @@ class _SwipePageState extends AuthRequiredState<SwipePage> {
   }
 }
 
-Widget _buildSwipeView(List<Activity> activity, context) {
+Widget _buildSwipeView(List<Activity> activity, context, Outing outing) {
+  final userId = Supabase.instance.client.auth.user()?.id;
+
   List<SwipeItem> _swipeItems = <SwipeItem>[];
 
   for (int i = 0; i < activity.length; i++) {
     _swipeItems.add(SwipeItem(
         content: ActivityCard(activity: activity[i]),
-        likeAction: () {},
+        likeAction: () async {
+          final insertRes =
+              await Supabase.instance.client.from('swipes').insert({
+            'activity_id': activity[i].id,
+            'outing_id': outing.id,
+            'profile_id': userId,
+          }).execute();
+          print(activity[i].name);
+        },
         nopeAction: () {},
         superlikeAction: () {},
         onSlideUpdate: (SlideRegion? region) async {}));
@@ -120,7 +132,7 @@ Widget _buildSwipeView(List<Activity> activity, context) {
         ),
         Padding(
           padding: const EdgeInsets.symmetric(
-            vertical: 8.0,
+            vertical: 20.0,
             horizontal: 30,
           ),
           child: Row(
@@ -153,8 +165,21 @@ Widget _buildSwipeView(List<Activity> activity, context) {
                 ),
               ),
               InkWell(
-                onTap: () {
+                onTap: () async {
                   Navigator.pushNamed(context, '/home');
+                  final res = await Supabase.instance.client
+                      .from('profiles')
+                      .select()
+                      .eq('id', userId)
+                      .single()
+                      .execute();
+                  final data = res.data;
+                  final insertres =
+                      await Supabase.instance.client.from('messages').insert({
+                    'room_id': outing.room_id,
+                    'profile_id': Supabase.instance.client.auth.user()?.id,
+                    'content': '${data['username']} has swiped',
+                  }).execute();
                 },
                 child: ChoiceButton(
                     width: 60,
