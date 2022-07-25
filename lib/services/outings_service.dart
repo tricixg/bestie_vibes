@@ -123,6 +123,8 @@ class OutingsService {
       date: map['date'] != null ? DateTime.parse(map['date']) : null,
       room_id: map['room_id'],
       activity_id: map['activity_id'] ?? null,
+      name: map['name'],
+      creator_id: map['creator_id']
     );
   }
 }

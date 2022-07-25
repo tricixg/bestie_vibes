@@ -126,7 +126,7 @@ class _addUserPageState extends AuthRequiredState<addUserPage> {
                     builder: (context, snapshot) {
                       if (!snapshot.hasData) {
                         return Center(
-                          child: CircularProgressIndicator(),
+                          child: CupertinoActivityIndicator(),
                           // Text('loading...'),
                         );
                       }

@@ -42,6 +42,10 @@ dependencies:
   fl_chart: ^0.55.0
   flutter_svg: ^1.1.1+1
 
+  syncfusion_flutter_datepicker: ^20.2.39
+  table_calendar: ^3.0.6
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
