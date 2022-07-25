@@ -3,7 +3,7 @@ description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -31,7 +31,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
@@ -40,7 +39,8 @@ dependencies:
   swipe_cards: ^1.0.0
   google_nav_bar: ^5.0.6
   intl: ^0.17.0
-
+  fl_chart: ^0.55.0
+  flutter_svg: ^1.1.1+1
 
 dev_dependencies:
   flutter_test:
@@ -58,7 +58,6 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -69,6 +68,20 @@ flutter:
     - lib/assets/images/bottom.png
     - lib/assets/images/main.png
     - lib/assets/images/top.png
+    - lib/assets/statistics-icons/activity.svg
+    - lib/assets/statistics-icons/food.svg
+    - lib/assets/statistics-icons/the-animal-lover.svg
+    - lib/assets/statistics-icons/the-asian-palate.svg
+    - lib/assets/statistics-icons/the-cafe-hopper.svg
+    - lib/assets/statistics-icons/the-cultured-one.svg
+    - lib/assets/statistics-icons/the-local-tourist.svg
+    - lib/assets/statistics-icons/the-nature-lover.svg
+    - lib/assets/statistics-icons/the-partier.svg
+    - lib/assets/statistics-icons/the-shopping-fanatic.svg
+    - lib/assets/statistics-icons/the-sweet-tooth.svg
+    - lib/assets/statistics-icons/the-thrill-seeker.svg
+    - lib/assets/statistics-icons/the-vegetarian.svg
+    - lib/assets/statistics-icons/the-western-palate.svg
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

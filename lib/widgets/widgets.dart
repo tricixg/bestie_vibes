@@ -7,3 +7,4 @@ export 'editTitle_dialog.dart';
 export 'room_card.dart';
 export 'roompart_card.dart';
 export 'deleteGroup_dialog.dart';
+export 'indicator.dart';
