@@ -3,7 +3,6 @@ export 'home/home_page.dart';
 export 'home/profile_page.dart';
 export 'pagedefault.dart';
 export 'splash_page.dart';
-export 'old/oldchat_screen.dart';
 export 'new outing/swipe_page.dart';
 export 'home/memories_page.dart';
 export 'home/statistics_page.dart';

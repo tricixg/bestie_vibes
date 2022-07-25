@@ -1,13 +1,11 @@
 export 'activity_model.dart';
-export 'old/group_model.dart';
 export 'availability_model.dart';
 export 'swipe_model.dart';
-export 'old/timeblock_model.dart';
-export 'old/user_group_model.dart';
-export 'old/user_model.dart';
 export 'outing_model.dart';
-export 'old/message_model.dart';
 export 'profile_model.dart';
 export 'messages_model.dart';
 export 'room_model.dart';
 export 'data_model.dart';
+export 'reflections_model.dart';
+export 'memory_model.dart';
+export 'room_participants_model.dart';

@@ -6,13 +6,17 @@ class Outing extends Equatable {
   final DateTime? date;
   final String room_id;
   final int? activity_id;
+  final String name;
+  final String creator_id;
 
   const Outing({
     required this.id,
+    required this.name,
     required this.createdAt,
     required this.date,
     required this.room_id,
     required this.activity_id,
+    required this.creator_id,
   });
 
   @override
@@ -25,5 +29,7 @@ class Outing extends Equatable {
         createdAt = DateTime.parse(map['created_at']),
         date = map['date'] != null ? DateTime.parse(map['date']) : null,
         room_id = map['room_id'],
-        activity_id = map['activity_id'] ?? null;
+        activity_id = map['activity_id'] ?? null,
+        name = map['name'],
+        creator_id = map['creator_id'];
 }

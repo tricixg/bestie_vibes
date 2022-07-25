@@ -2,23 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../models/models.dart';
-import '../pages/pages.dart';
+import '../pages/memories/memory_page.dart';
 
-class roomCard extends StatelessWidget {
-  const roomCard({
-    Key? key,
-    required this.room,
-  }) : super(key: key);
+class memoryCard extends StatelessWidget {
+  const memoryCard({Key? key, required this.outing})
+      : super(key: key);
 
-  final Room room;
+  final Outing outing;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Navigator.of(context).push(
+      onTap: () async {
+       Navigator.of(context).push(
           MaterialPageRoute(builder: (context) {
-            return ChatRoomPage(room: room);
+            return MemoryPage(outing:outing);
           }),
         );
       },
@@ -37,14 +35,13 @@ class roomCard extends StatelessWidget {
           children: <Widget>[
             Row(
               children: <Widget>[
-        
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      room.name.length > 19
-                          ? room.name.substring(0, 17) + "..."
-                          : room.name,
+                      outing.name.length > 19
+                          ? outing.name.substring(0, 17) + "..."
+                          : outing.name,
                       style: TextStyle(
                         color: Colors.grey[600],
                         fontSize: 20.0,
@@ -52,7 +49,7 @@ class roomCard extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 5.0),
-           
+
                   ],
                 ),
               ],
@@ -60,7 +57,10 @@ class roomCard extends StatelessWidget {
             Column(
               children: <Widget>[
                 Text(
-                  DateFormat("dd-MM-yyyy").format(room.createdAt),
+                  outing.date == null
+                      ? 'Show Result'
+                      : DateFormat("dd-MM-yyyy")
+                          .format(outing.date ?? DateTime(0000)),
                   style: TextStyle(
                     color: Colors.grey,
                     fontSize: 12.0,

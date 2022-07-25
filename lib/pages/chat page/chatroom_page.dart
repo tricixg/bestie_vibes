@@ -1,10 +1,11 @@
 import 'dart:async';
 
-import 'package:bestie_vibes/pages/home/room_page.dart';
 import 'package:bestie_vibes/pages/pages.dart';
+import 'package:bestie_vibes/widgets/outing_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import '../new outing/new_outing_titile.dart';
 import '/widgets/widgets.dart';
 import 'package:bestie_vibes/components/auth_required_state.dart';
 import 'package:bestie_vibes/models/models.dart';
@@ -14,13 +15,6 @@ class ChatRoomPage extends StatefulWidget {
   const ChatRoomPage({Key? key, required this.room}) : super(key: key);
 
   final Room room;
-
-  // static Route route() {
-  //   return MaterialPageRoute(
-  //     builder: (_) => ChatRoomPage(roomid: ),
-  //     settings: RouteSettings(name: routeName),
-  //   );
-  // }
 
   @override
   _ChatRoomPageState createState() => _ChatRoomPageState();
@@ -73,8 +67,13 @@ class _ChatRoomPageState extends AuthRequiredState<ChatRoomPage> {
     return Scaffold(
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.pushNamed(context, '/swipe');
+          onPressed: () async {
+
+            Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) {
+                return newOutingTitle(room: widget.room);
+              }),
+            );
           },
           backgroundColor: Color(0xFFFD6974),
           child: const Icon(Icons.add),
@@ -94,19 +93,7 @@ class _ChatRoomPageState extends AuthRequiredState<ChatRoomPage> {
           elevation: 0,
           title: Row(
             children: [
-              // Expanded(
-              // child:
-              // Image.asset(
-              //   'lib/assets/images/main.png',
-              //   height: 50,
-              // ),
-              // SizedBox(
-              //   width: 20,
-              // ),
-              // ),
-              // Expanded(
-              // flex: 2,
-              // child:
+  
               TextButton(
                 onPressed: () {
                   showDialog(
@@ -126,7 +113,7 @@ class _ChatRoomPageState extends AuthRequiredState<ChatRoomPage> {
                       ),
                 ),
               ),
-              //  )
+              
             ],
           ),
           actions: [
@@ -139,20 +126,60 @@ class _ChatRoomPageState extends AuthRequiredState<ChatRoomPage> {
                 );
               },
               icon: Icon(CupertinoIcons.person_2_fill, color: Colors.pink[200]),
-              // label: Text('Add User'),
-
-              // onPressed: () {
-              //   showDialog(
-              //       context: context,
-              //       builder: (context) {
-              //         return InviteDialog(roomId: widget.room.room_id);
-              //       });
-              // },
-              //child: const Text('Invite')
+           
             ),
           ],
         ),
-        body: _messagesList());
+        body: Column(
+          children: [
+            SizedBox(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height / 5,
+                child: _messagesList()),
+            Expanded(
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  border: Border.all(
+                    color: Colors.white,
+                    width: 8,
+                  ),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: StreamBuilder<List<Outing>>(
+                    stream: Supabase.instance.client
+                        .from('outings:room_id=eq.${widget.room.id}')
+                        .stream(['id'])
+                        .order('created_at')
+                        .execute()
+                        .map((maps) => maps.map(Outing.fromMap).toList()),
+                    builder: (context, snapshot) {
+                      if (!snapshot.hasData) {
+                        return Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      }
+                      final outings = snapshot.data!;
+                      if (outings.isEmpty) {
+                        return const Center(
+                            child: Text('Create an outing using the "+" button',
+                                style: TextStyle(
+                                    color: Color.fromARGB(255, 0, 0, 0),
+                                    fontSize: 15)));
+                      }
+                      return ListView.builder(
+                        itemCount: outings.length,
+                        itemBuilder: (context, index) {
+                          final outing = outings[index];
+                          return outingCard(outing: outing, room: widget.room,);
+                       
+                        },
+                      );
+                    }),
+              ),
+            ),
+          ],
+        ));
   }
 
   Widget _messagesList() {
@@ -163,7 +190,7 @@ class _ChatRoomPageState extends AuthRequiredState<ChatRoomPage> {
     }
     if (_messages!.isEmpty) {
       return const Center(
-        child: Text('No one has started an outing yet...'),
+        child: Text('No one has swiped yet...'),
       );
     }
     final userId = Supabase.instance.client.auth.user()?.id;
@@ -211,9 +238,8 @@ class chatBubble extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      elevation: 4,
-      borderRadius: BorderRadius.circular(4),
-      color: userId == message.profileId ? Colors.grey[300] : Colors.blue[200],
+      borderRadius: BorderRadius.circular(10),
+      color: userId == message.profileId ? Color.fromARGB(255, 255, 255, 255) : Color.fromARGB(255, 242, 140, 147),
       child: Padding(
         padding: const EdgeInsets.all(8),
         child: Column(
@@ -223,13 +249,14 @@ class chatBubble extends StatelessWidget {
               profileCache[message.profileId]?.username ?? 'loading...',
               style: const TextStyle(
                 color: Colors.black54,
-                fontSize: 14,
+                fontSize: 18,
               ),
             ),
             Text(
               message.content,
               style: const TextStyle(
                 color: Colors.black,
+                fontSize: 13
               ),
             ),
           ],

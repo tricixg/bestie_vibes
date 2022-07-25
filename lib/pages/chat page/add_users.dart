@@ -10,17 +10,9 @@ import '/widgets/widgets.dart';
 import 'package:bestie_vibes/components/auth_required_state.dart';
 
 class addUserPage extends StatefulWidget {
-  //static const String routeName = '/newouting';
 
   const addUserPage({Key? key, required this.room}) : super(key: key);
   final Room room;
-
-  // static Route route() {
-  //   return MaterialPageRoute(
-  //     builder: (_) => addUserPage(),
-  //     settings: RouteSettings(name: routeName),
-  //   );
-  // }
 
   @override
   _addUserPageState createState() => _addUserPageState();
@@ -67,9 +59,6 @@ class _addUserPageState extends AuthRequiredState<addUserPage> {
           ),
         ),
         floatingActionButton: FloatingActionButton.extended(
-            // onPressed: () {
-            //   Navigator.pushNamed(context, '/swipe');
-            // },
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(builder: (context) {
@@ -98,6 +87,20 @@ class _addUserPageState extends AuthRequiredState<addUserPage> {
                       .single()
                       .execute();
                   final data = res.data;
+                  print(res.data);
+                  if (res.data == null) {
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return SimpleDialog(
+                            title: Padding(
+                              padding: const EdgeInsets.fromLTRB(15, 0, 15, 20),
+                              child: const Text('User not found',
+                                style: TextStyle(color: Colors.red, fontSize: 20)),
+                            ),
+                          );
+                        });
+                  } else {
                   final insertRes = await Supabase.instance.client
                       .from('room_participants')
                       .insert({
@@ -108,8 +111,7 @@ class _addUserPageState extends AuthRequiredState<addUserPage> {
                     MaterialPageRoute(builder: (context) {
                       return addUserPage(room: widget.room);
                     }),
-                  );
-                  // Navigator.of(context).pop();
+                  );}
                 },
                 child: const Text('Invite'),
               ),
@@ -126,8 +128,7 @@ class _addUserPageState extends AuthRequiredState<addUserPage> {
                     builder: (context, snapshot) {
                       if (!snapshot.hasData) {
                         return Center(
-                          child: CircularProgressIndicator(),
-                          // Text('loading...'),
+                          child: CupertinoActivityIndicator(),
                         );
                       }
                       final parts = snapshot.data!;

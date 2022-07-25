@@ -1,8 +1,6 @@
-import 'package:bestie_vibes/models/profile_model.dart';
 import 'package:bestie_vibes/models/room_model.dart';
 import 'package:bestie_vibes/models/room_participants_model.dart';
 import 'package:bestie_vibes/pages/pages.dart';
-import 'package:bestie_vibes/utils/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -10,17 +8,11 @@ import '/widgets/widgets.dart';
 import 'package:bestie_vibes/components/auth_required_state.dart';
 
 class newAddUserPage extends StatefulWidget {
-  //static const String routeName = '/newouting';
 
   const newAddUserPage({Key? key, required this.room}) : super(key: key);
   final Room room;
 
-  // static Route route() {
-  //   return MaterialPageRoute(
-  //     builder: (_) => newAddUserPage(),
-  //     settings: RouteSettings(name: routeName),
-  //   );
-  // }
+
 
   @override
   _newAddUserPageState createState() => _newAddUserPageState();
@@ -67,9 +59,7 @@ class _newAddUserPageState extends AuthRequiredState<newAddUserPage> {
           ),
         ),
         floatingActionButton: FloatingActionButton.extended(
-            // onPressed: () {
-            //   Navigator.pushNamed(context, '/swipe');
-            // },
+           
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(builder: (context) {
@@ -98,18 +88,31 @@ class _newAddUserPageState extends AuthRequiredState<newAddUserPage> {
                       .single()
                       .execute();
                   final data = res.data;
-                  final insertRes = await Supabase.instance.client
-                      .from('room_participants')
-                      .insert({
-                    'room_id': widget.room.id,
-                    'profile_id': data['id'],
-                  }).execute();
-                  Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) {
-                      return newAddUserPage(room: widget.room);
-                    }),
-                  );
-                  // Navigator.of(context).pop();
+                  if (res.data == null) {
+                   showDialog(
+                        context: context,
+                        builder: (context) {
+                          return SimpleDialog(
+                            title: Padding(
+                              padding: const EdgeInsets.fromLTRB(15, 0, 15, 20),
+                              child: const Text('User not found',
+                                style: TextStyle(color: Colors.red, fontSize: 20)),
+                            ),
+                          );
+                        });
+                  } else {
+                    final insertRes = await Supabase.instance.client
+                        .from('room_participants')
+                        .insert({
+                      'room_id': widget.room.id,
+                      'profile_id': data['id'],
+                    }).execute();
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) {
+                        return newAddUserPage(room: widget.room);
+                      }),
+                    );
+                  }
                 },
                 child: const Text('Invite'),
               ),
@@ -126,7 +129,7 @@ class _newAddUserPageState extends AuthRequiredState<newAddUserPage> {
                     builder: (context, snapshot) {
                       if (!snapshot.hasData) {
                         return Center(
-                          child: CircularProgressIndicator(),
+                          child: CupertinoActivityIndicator(),
                           // Text('loading...'),
                         );
                       }

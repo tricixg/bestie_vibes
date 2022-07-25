@@ -1,22 +1,22 @@
+import 'package:bestie_vibes/models/outing_model.dart';
 import 'package:bestie_vibes/models/room_model.dart';
-import 'package:bestie_vibes/pages/pages.dart';
+import 'package:bestie_vibes/pages/new%20outing/datepicker.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '/widgets/widgets.dart';
 import 'package:bestie_vibes/components/auth_required_state.dart';
 
-class newGroupTitle extends StatefulWidget {
+class newOutingTitle extends StatefulWidget {
 
-  const newGroupTitle({Key? key, required this.room}) : super(key: key);
+  const newOutingTitle({Key? key, required this.room}) : super(key: key);
   final Room room;
 
-  
-
+ 
   @override
-  _newGroupTitleState createState() => _newGroupTitleState();
+  _newOutingTitleState createState() => _newOutingTitleState();
 }
 
-class _newGroupTitleState extends AuthRequiredState<newGroupTitle> {
+class _newOutingTitleState extends AuthRequiredState<newOutingTitle> {
   final _titleController = TextEditingController();
 
   @override
@@ -28,22 +28,26 @@ class _newGroupTitleState extends AuthRequiredState<newGroupTitle> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: CustomAppBar(
-          title: 'GROUP NAME',
+          title: 'OUTING NAME',
         ),
         floatingActionButton: FloatingActionButton.extended(
           
             onPressed: () async {
 
-              final res = await Supabase.instance.client
-                  .from('rooms')
-                  .update({
-                    'name': _titleController.text,
-                  })
-                  .eq('id', widget.room.id)
-                  .execute();
+            final res = await Supabase.instance.client
+                .rpc('create_outing', params: {'room_id': '${widget.room.id}', 'name': '${_titleController.text}', 'creator_id': Supabase.instance.client.auth.user()?.id}).execute();
+            final data = res.data;
+            final error = res.error;
+            if (error != null) {
+              ScaffoldMessenger.of(context)
+                  .showSnackBar(SnackBar(content: Text(error.message)));
+              return;
+            }
+            final outing = Outing.fromMap(data);
+       
               Navigator.of(context).push(
                 MaterialPageRoute(builder: (context) {
-                  return newAddUserPage(room: widget.room);
+                  return DatePickerPage(outing: outing);
                 }),
               );
             },
@@ -56,9 +60,9 @@ class _newGroupTitleState extends AuthRequiredState<newGroupTitle> {
             children: [
               TextFormField(
                 controller: _titleController,
-                decoration: const InputDecoration(labelText: 'Group Name'),
+                decoration: const InputDecoration(labelText: 'Outing Name'),
               ),
-    
+             
             ],
           ),
         ));

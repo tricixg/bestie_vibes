@@ -1,6 +1,5 @@
 import 'package:bestie_vibes/models/models.dart';
 import 'package:flutter/material.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
 import '/widgets/widgets.dart';
 import '../../utils/constants.dart';
 import 'package:bestie_vibes/components/auth_required_state.dart';
