@@ -1,5 +1,6 @@
 import 'package:bestie_vibes/models/outing_model.dart';
 import 'package:bestie_vibes/pages/memories/memory_page.dart';
+import 'package:bestie_vibes/widgets/memory_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../utils/constants.dart';
@@ -45,7 +46,6 @@ class _MemoriesPageState extends AuthRequiredState<MemoriesPage> {
         padding: const EdgeInsets.all(15.0),
         child: Column(
           children: [
-            
             FutureBuilder<List<Outing>>(
               future: getOutings(),
               builder: (ctx, snapshot) {
@@ -61,13 +61,12 @@ class _MemoriesPageState extends AuthRequiredState<MemoriesPage> {
                           startTime.add(const Duration(hours: 2));
                       for (int i = 0; i < outings.length; i++) {
                         meetings.add(Meeting(
-                          outings[i].name,
-                          outings[i].date ?? DateTime(0000),
-                          outings[i].date ?? DateTime(0000),
-                          const Color(0xFFFD6974),
-                          false,
-                          outings[i]
-                        ));
+                            outings[i].name,
+                            outings[i].date ?? DateTime(0000),
+                            outings[i].date ?? DateTime(0000),
+                            const Color(0xFFFD6974),
+                            false,
+                            outings[i]));
                       }
                       return meetings;
                     }
@@ -85,38 +84,41 @@ class _MemoriesPageState extends AuthRequiredState<MemoriesPage> {
                             (BuildContext context) {
                               return Container(
                                 height: 200,
-                                color: Color.fromARGB(255, 254, 186, 192),
+                                color: Color.fromARGB(255, 255, 213, 216),
                                 child: Center(
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     mainAxisSize: MainAxisSize.min,
                                     children: <Widget>[
                                       SizedBox(
-                                        width: MediaQuery.of(context).size.width,
-                                        height: MediaQuery.of(context).size.height / 4.9,
+                                        width:
+                                            MediaQuery.of(context).size.width,
+                                        height:
+                                            MediaQuery.of(context).size.height /
+                                                6.7,
                                         child: ListView.builder(
-                                          itemCount: details.appointments!.length,
+                                          itemCount:
+                                              details.appointments!.length,
                                           itemBuilder: (context, index) {
-                                            final cards = details.appointments![index] as Meeting;
-                                            return ListTile(
-                                              onTap: () {
-                                                Navigator.of(context).push(
-                                                  MaterialPageRoute(builder: (context) {
-                                                    return MemoryPage(outing: cards.outing);
-                                                  }),
-                                                );
-                                              },
-                                              title: Text(cards.eventName),
-                                            );
-                                        }, ),
-                                      )
+                                            final cards =
+                                                details.appointments![index]
+                                                    as Meeting;
+                                            return memoryCard(
+                                                outing: cards.outing);
+                                          },
+                                        ),
+                                      ),
+                                        ElevatedButton(
+                                          child: const Text('Close'),
+                                          onPressed: () => Navigator.pop(context),
+                                        )
                                     ],
                                   ),
                                 ),
                               );
                             },
+                            
                           );
-                        
                         },
                       ),
                     );
@@ -129,7 +131,6 @@ class _MemoriesPageState extends AuthRequiredState<MemoriesPage> {
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height / 4.5,
             )
-    
           ],
         ),
       ),
@@ -159,8 +160,6 @@ class _MemoriesPageState extends AuthRequiredState<MemoriesPage> {
         activity_id: map['activity_id'] ?? null,
         creator_id: map['creator_id']);
   }
-
-  
 }
 
 class MeetingDataSource extends CalendarDataSource {

@@ -22,7 +22,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends AuthState<HomePage> {
   int _selectedIndex = 0;
-  final List<Widget> screens = [ RoomPage(), MemoriesPage(), StatisticsPage(), ProfilePage()];
+  final List<Widget> screens = [
+    RoomPage(),
+    MemoriesPage(),
+    StatisticsPage(),
+    ProfilePage()
+  ];
   @override
   void initState() {
     super.initState();
@@ -31,35 +36,36 @@ class _HomePageState extends AuthState<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: screens[_selectedIndex],
-        bottomNavigationBar: Container(
-            color: Color.fromARGB(255, 253, 186, 192),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20),
-              child: GNav(
-                  gap: 8,
-                  selectedIndex: _selectedIndex,
-                  onTabChange: (index) {
-                    setState((){
-                      _selectedIndex = index;
-                    });
-                  },
-                  backgroundColor: Color.fromARGB(255, 253, 186, 192),
-                  color: Colors.blueGrey,
-                  activeColor: Colors.white,
-                  tabBackgroundColor: Color.fromARGB(255, 254, 143, 152),
-                  padding: EdgeInsets.all(16),
-                  tabs: const [
-                    GButton(icon: CupertinoIcons.person_2_fill, text: 'Groups'),
-                    GButton(
-                        icon: CupertinoIcons.square_favorites_alt_fill,
-                        text: 'Memories'),
-                    GButton(
-                        icon: CupertinoIcons.graph_circle_fill, text: 'Statistics'),
-                    GButton(icon: Icons.settings, text: 'Settings')
-                  ]),
-            ),
-          ),
+      body: screens[_selectedIndex],
+      bottomNavigationBar: Container(
+        color: Color.fromARGB(255, 253, 186, 192),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20),
+          child: GNav(
+              gap: 8,
+              selectedIndex: _selectedIndex,
+              onTabChange: (index) {
+                setState(() {
+                  _selectedIndex = index;
+                  //Navigator.pop(context);
+                });
+              },
+              backgroundColor: Color.fromARGB(255, 253, 186, 192),
+              color: Colors.blueGrey,
+              activeColor: Colors.white,
+              tabBackgroundColor: Color.fromARGB(255, 254, 143, 152),
+              padding: EdgeInsets.all(16),
+              tabs: const [
+                GButton(icon: CupertinoIcons.person_2_fill, text: 'Groups'),
+                GButton(
+                    icon: CupertinoIcons.square_favorites_alt_fill,
+                    text: 'Memories'),
+                GButton(
+                    icon: CupertinoIcons.graph_circle_fill, text: 'Statistics'),
+                GButton(icon: Icons.settings, text: 'Settings')
+              ]),
+        ),
+      ),
     );
   }
 }
