@@ -59,7 +59,7 @@ class _MemoryPageState extends AuthRequiredState<MemoryPage> {
                     style: Theme.of(context).textTheme.headline2,
                   ),
                   Text(
-                      '${DateFormat("dd-MM-yyyy").format(widget.outing.date ?? DateTime(0000))}')
+                      '${DateFormat("yyy-MM-dd").format(widget.outing.date ?? DateTime(0000))}')
                 ],
               ),
             ),

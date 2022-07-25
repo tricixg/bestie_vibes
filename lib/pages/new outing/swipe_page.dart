@@ -181,6 +181,32 @@ Widget _buildSwipeView(List<Activity> activity, context, Outing outing) {
                     'profile_id': Supabase.instance.client.auth.user()?.id,
                     'content': '${data['username']} has swiped for ${outing.name}',
                   }).execute();
+
+                  final swiperes = await Supabase.instance.client
+                      .rpc('num_swiped', params: {'outing_id': outing.id}).execute();
+                  final swipedata = res.data;
+                  print(data);
+
+                  final partres = await Supabase.instance.client
+                      .rpc('num_outing_participants', params: {'outing_id': outing.id}).execute();
+                  final partdata = partres.data;
+                  
+                  print(partdata);
+
+                  final swipe = await Supabase.instance.client
+                      .rpc('has_swiped', params: {'outing_id': outing.id, 'profile_id': Supabase.instance.client.auth.user()?.id }).execute();
+                  final swiped = swipe.data;
+
+                  if(swipedata == partdata) {
+                    final insertres =
+                        await Supabase.instance.client.from('messages').insert({
+                      'room_id': outing.room_id,
+                      'profile_id': outing.creator_id,
+                      'content': 'Results Available',
+                    }).execute();
+
+                  }
+
                 },
                 child: ChoiceButton(
                     width: 60,

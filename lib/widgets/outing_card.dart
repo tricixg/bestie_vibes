@@ -37,6 +37,18 @@ class outingCard extends StatelessWidget {
         
         if(outing.creator_id == Supabase.instance.client.auth.user()?.id){
           if (data == partdata) {
+             final res = await Supabase.instance.client
+        .rpc('date_result', params: {'outing_id': outing.id}).execute();
+              final data = res.data;
+
+              final result = data.toString();
+              final insertres = await Supabase.instance.client
+                  .from('outings')
+                  .update({
+                    'date': data,
+                  })
+                  .eq('id', outing.id)
+                  .execute();
             Navigator.of(context).push(
               MaterialPageRoute(builder: (context) {
                 return ResultsPage(outing: outing, room: room);
@@ -66,6 +78,7 @@ class outingCard extends StatelessWidget {
                 return ResultsPage(outing: outing, room: room);
               }),
             );
+            
           } else {
             if(swiped) {
               showDialog(
