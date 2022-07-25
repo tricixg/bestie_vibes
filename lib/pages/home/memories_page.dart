@@ -70,6 +70,7 @@ late final ValueNotifier<List<Memory>> _selectedEvents;
       appBar: CustomAppBar(
         title: 'MEMORIES',
       ),
+
       body: Padding(
         padding: const EdgeInsets.all(15.0),
         child:   Column(
@@ -101,6 +102,7 @@ late final ValueNotifier<List<Memory>> _selectedEvents;
                   _focusedDay = focusedDay;
                 },
               ),
+
       
           const SizedBox(height: 8.0),
           Expanded(
