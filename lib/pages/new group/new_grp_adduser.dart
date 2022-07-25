@@ -98,17 +98,31 @@ class _newAddUserPageState extends AuthRequiredState<newAddUserPage> {
                       .single()
                       .execute();
                   final data = res.data;
-                  final insertRes = await Supabase.instance.client
-                      .from('room_participants')
-                      .insert({
-                    'room_id': widget.room.id,
-                    'profile_id': data['id'],
-                  }).execute();
-                  Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) {
-                      return newAddUserPage(room: widget.room);
-                    }),
-                  );
+                  if (res.data == null) {
+                   showDialog(
+                        context: context,
+                        builder: (context) {
+                          return SimpleDialog(
+                            title: Padding(
+                              padding: const EdgeInsets.fromLTRB(15, 0, 15, 20),
+                              child: const Text('User not found',
+                                style: TextStyle(color: Colors.red, fontSize: 20)),
+                            ),
+                          );
+                        });
+                  } else {
+                    final insertRes = await Supabase.instance.client
+                        .from('room_participants')
+                        .insert({
+                      'room_id': widget.room.id,
+                      'profile_id': data['id'],
+                    }).execute();
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) {
+                        return newAddUserPage(room: widget.room);
+                      }),
+                    );
+                  }
                   // Navigator.of(context).pop();
                 },
                 child: const Text('Invite'),

@@ -1,4 +1,4 @@
-import 'package:bestie_vibes/pages/memory_page.dart';
+import 'package:bestie_vibes/pages/memories/memory_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -37,6 +37,14 @@ class _ResultsPageState extends AuthRequiredState<ResultsPage> {
     final data = res.data;
 
     final result = Activity.fromMap(data);
+
+    final insertres = await Supabase.instance.client
+      .from('outings')
+      .update({
+        'activity_id': result.id,
+      })
+      .eq('id', widget.outing.id)
+      .execute();
     return result;
   }
 
@@ -131,6 +139,7 @@ class _ResultsPageState extends AuthRequiredState<ResultsPage> {
                           website: 'website');
                   switch (snapshot.connectionState) {
                     case ConnectionState.done:
+
                       return ActivityCard(activity: activity);
                     default:
                       return _buildLoadingScreen();
