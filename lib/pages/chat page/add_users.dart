@@ -10,17 +10,9 @@ import '/widgets/widgets.dart';
 import 'package:bestie_vibes/components/auth_required_state.dart';
 
 class addUserPage extends StatefulWidget {
-  //static const String routeName = '/newouting';
 
   const addUserPage({Key? key, required this.room}) : super(key: key);
   final Room room;
-
-  // static Route route() {
-  //   return MaterialPageRoute(
-  //     builder: (_) => addUserPage(),
-  //     settings: RouteSettings(name: routeName),
-  //   );
-  // }
 
   @override
   _addUserPageState createState() => _addUserPageState();
@@ -67,9 +59,6 @@ class _addUserPageState extends AuthRequiredState<addUserPage> {
           ),
         ),
         floatingActionButton: FloatingActionButton.extended(
-            // onPressed: () {
-            //   Navigator.pushNamed(context, '/swipe');
-            // },
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(builder: (context) {
@@ -123,7 +112,6 @@ class _addUserPageState extends AuthRequiredState<addUserPage> {
                       return addUserPage(room: widget.room);
                     }),
                   );}
-                  // Navigator.of(context).pop();
                 },
                 child: const Text('Invite'),
               ),
@@ -141,7 +129,6 @@ class _addUserPageState extends AuthRequiredState<addUserPage> {
                       if (!snapshot.hasData) {
                         return Center(
                           child: CupertinoActivityIndicator(),
-                          // Text('loading...'),
                         );
                       }
                       final parts = snapshot.data!;

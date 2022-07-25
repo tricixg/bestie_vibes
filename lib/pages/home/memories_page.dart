@@ -1,11 +1,7 @@
 import 'package:bestie_vibes/models/outing_model.dart';
 import 'package:bestie_vibes/pages/memories/memory_page.dart';
-import 'package:bestie_vibes/widgets/outing_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
-import '../../components/outing_provider.dart';
-import '../../models/memory_model.dart';
 import '../../utils/constants.dart';
 import '/widgets/widgets.dart';
 import 'package:bestie_vibes/components/auth_required_state.dart';
@@ -120,10 +116,7 @@ class _MemoriesPageState extends AuthRequiredState<MemoriesPage> {
                               );
                             },
                           );
-                          // showBottomSheet(
-                          //     context: context,
-                          //     builder: (context) => ListTile(title: Text(details.date!.toString()),)
-                          //     );
+                        
                         },
                       ),
                     );
@@ -136,16 +129,7 @@ class _MemoriesPageState extends AuthRequiredState<MemoriesPage> {
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height / 4.5,
             )
-            // Expanded(
-            //   child: SfCalendar(
-            //     view: CalendarView.month,
-            //     monthViewSettings: MonthViewSettings(showAgenda: true),
-            //     dataSource: OutingDataSource(_getDataSource()),
-            //     onLongPress: (details) {
-
-            //     },
-            //   ),
-            // )
+    
           ],
         ),
       ),
@@ -176,14 +160,7 @@ class _MemoriesPageState extends AuthRequiredState<MemoriesPage> {
         creator_id: map['creator_id']);
   }
 
-  //  List<Outing> _getDataSource() async {
-  //   final List<Outing> outings = getOutings();
-  //   final DateTime today = DateTime.now();
-  //   final DateTime startTime =
-  //   DateTime(today.year, today.month, today.day, 9, 0, 0);
-  //   final DateTime endTime = startTime.add(const Duration(hours: 2));
-
-  // }
+  
 }
 
 class MeetingDataSource extends CalendarDataSource {

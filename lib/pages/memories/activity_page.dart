@@ -8,12 +8,7 @@ import 'package:bestie_vibes/components/auth_required_state.dart';
 class ActivityPage extends StatefulWidget {
   const ActivityPage({Key? key, required this.activityid}) : super(key: key);
   final int activityid;
-  // static Route route() {
-  //   return MaterialPageRoute(
-  //     builder: (_) => ActivityPage(),
-  //     settings: RouteSettings(name: routeName),
-  //   );
-  // }
+
 
   @override
   _ActivityPageState createState() => _ActivityPageState();

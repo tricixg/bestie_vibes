@@ -90,12 +90,7 @@ class _LoginPageState extends AuthState<LoginPage> {
                   controller: _emailController,
                   decoration: const InputDecoration(labelText: 'Email'),
                 )
-
-                //  TextField(
-                //   decoration: InputDecoration(
-                //     labelText: "Email"
-                //   ),
-                // ),
+   
                 ),
             SizedBox(height: size.height * 0.03),
             Container(
@@ -119,13 +114,7 @@ class _LoginPageState extends AuthState<LoginPage> {
                       ])),
                   padding: const EdgeInsets.all(0),
                   child: Text(_isLoading ? 'Loading' : 'Send Magic Link'),
-                  // Text(
-                  //   "LOGIN",
-                  //   textAlign: TextAlign.center,
-                  //   style: TextStyle(
-                  //     fontWeight: FontWeight.bold
-                  //   ),
-                  // ),
+
                 ),
               ),
             ),
@@ -133,24 +122,6 @@ class _LoginPageState extends AuthState<LoginPage> {
         ),
       ),
     );
-    // return Scaffold(
-    //   appBar: AppBar(title: const Text('Sign In')),
-    //   body: ListView(
-    //     padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 12),
-    //     children: [
-    //       const Text('Sign in via the magic link with your email below'),
-    //       const SizedBox(height: 18),
-    //       TextFormField(
-    //         controller: _emailController,
-    //         decoration: const InputDecoration(labelText: 'Email'),
-    //       ),
-    //       const SizedBox(height: 18),
-    //       ElevatedButton(
-    //         onPressed: _isLoading ? null : _signIn,
-    //         child: Text(_isLoading ? 'Loading' : 'Send Magic Link'),
-    //       ),
-    //     ],
-    //   ),
-    // );
+
   }
 }

@@ -1,8 +1,6 @@
-import 'package:bestie_vibes/models/profile_model.dart';
 import 'package:bestie_vibes/models/room_model.dart';
 import 'package:bestie_vibes/models/room_participants_model.dart';
 import 'package:bestie_vibes/pages/pages.dart';
-import 'package:bestie_vibes/utils/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -10,17 +8,11 @@ import '/widgets/widgets.dart';
 import 'package:bestie_vibes/components/auth_required_state.dart';
 
 class newAddUserPage extends StatefulWidget {
-  //static const String routeName = '/newouting';
 
   const newAddUserPage({Key? key, required this.room}) : super(key: key);
   final Room room;
 
-  // static Route route() {
-  //   return MaterialPageRoute(
-  //     builder: (_) => newAddUserPage(),
-  //     settings: RouteSettings(name: routeName),
-  //   );
-  // }
+
 
   @override
   _newAddUserPageState createState() => _newAddUserPageState();
@@ -67,9 +59,7 @@ class _newAddUserPageState extends AuthRequiredState<newAddUserPage> {
           ),
         ),
         floatingActionButton: FloatingActionButton.extended(
-            // onPressed: () {
-            //   Navigator.pushNamed(context, '/swipe');
-            // },
+           
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(builder: (context) {
@@ -123,7 +113,6 @@ class _newAddUserPageState extends AuthRequiredState<newAddUserPage> {
                       }),
                     );
                   }
-                  // Navigator.of(context).pop();
                 },
                 child: const Text('Invite'),
               ),

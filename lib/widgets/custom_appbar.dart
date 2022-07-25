@@ -27,13 +27,7 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
               ))
         ],
       ),
-      // actions: [
-      //   IconButton(
-      //       onPressed: () {
-      //         Navigator.pushNamed(context, '/addfriends');
-      //       },
-      //       icon: Icon(Icons.group_add_rounded, color: Colors.pink[200]))
-      // ],
+   
     );
   }
 

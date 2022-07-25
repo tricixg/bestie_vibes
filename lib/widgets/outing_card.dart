@@ -1,13 +1,10 @@
 import 'package:bestie_vibes/pages/new%20outing/datepicker.dart';
 import 'package:bestie_vibes/pages/new%20outing/results_page.dart';
-import 'package:bestie_vibes/utils/constants.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../models/models.dart';
-import '../pages/pages.dart';
 
 class outingCard extends StatelessWidget {
   const outingCard({Key? key, required this.outing, required this.room})
@@ -137,18 +134,7 @@ class outingCard extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 5.0),
-                    // Container(
-                    //   width: MediaQuery.of(context).size.width * 0.45,
-                    //   child: Text(
-                    //     outing.text,
-                    //     style: TextStyle(
-                    //       color: Colors.blueGrey,
-                    //       fontSize: 14.0,
-                    //       fontWeight: FontWeight.w600,
-                    //     ),
-                    //     overflow: TextOverflow.ellipsis,
-                    //   ),
-                    // ),
+
                   ],
                 ),
               ],
@@ -167,25 +153,7 @@ class outingCard extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 5.0),
-                // chat.unread
-                //     ? Container(
-                //         width: 40.0,
-                //         height: 20.0,
-                //         decoration: BoxDecoration(
-                //           color: Theme.of(context).primaryColor,
-                //           borderRadius: BorderRadius.circular(30.0),
-                //         ),
-                //         alignment: Alignment.center,
-                //         child: Text(
-                //           'NEW',
-                //           style: TextStyle(
-                //             color: Colors.white,
-                //             fontSize: 12.0,
-                //             fontWeight: FontWeight.bold,
-                //           ),
-                //         ),
-                //       )
-                //     : Text(''),
+ 
               ],
             ),
           ],

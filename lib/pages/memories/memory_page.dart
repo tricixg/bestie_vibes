@@ -96,7 +96,6 @@ class _MemoryPageState extends AuthRequiredState<MemoryPage> {
                                 color: Color.fromARGB(255, 0, 0, 0), fontSize: 15)));
                   }
                   return ListView.builder(
-                    //scrollDirection: Axis.horizontal,
                     itemCount: comments.length,
                     itemBuilder: (context, index) {
                       final comment = comments[index];

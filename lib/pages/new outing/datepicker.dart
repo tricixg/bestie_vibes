@@ -13,12 +13,6 @@ class DatePickerPage extends StatefulWidget {
   const DatePickerPage({Key? key, required this.outing}) : super(key: key);
   final Outing outing;
 
-  // static Route route() {
-  //   return MaterialPageRoute(
-  //     builder: (_) => DatePickerPage(),
-  //     settings: RouteSettings(name: routeName),
-  //   );
-  // }
 
   @override
   _DatePickerPageState createState() => _DatePickerPageState();
@@ -39,9 +33,7 @@ class _DatePickerPageState extends AuthRequiredState<DatePickerPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton.extended(
-          // onPressed: () {
-          //   Navigator.pushNamed(context, '/swipe');
-          // },
+        
           onPressed: () async {
             for (int i = 0; i < _selectedDates.length; i++) {
               
@@ -90,27 +82,6 @@ class _DatePickerPageState extends AuthRequiredState<DatePickerPage> {
                   onViewChanged: (view) {
                     print(view);
                   },
-                  //         onSubmit: (value) async {
-                  //           if (value is List<DateTime> ) {
-                  //             final List<DateTime> selectedDates = value;
-                  //             for (int i = 0; i < value.length; i++ ) {
-                  //               final insertRes = await Supabase.instance.client
-                  //                     .from('availabilities')
-                  //                     .insert({
-                  //                   'date': selectedDates[i],
-                  //                   'outing_id': widget.outing.id,
-                  //                   'profile_id': userId,
-                  //                 }).execute();
-                  //             }
-                  //  ​
-                  //           }
-
-                  //   Navigator.of(context).push(
-                  //     MaterialPageRoute(builder: (context) {
-                  //       return SwipePage(outing: widget.outing);
-                  //     }),
-                  //   );
-                  // },
                   onSelectionChanged: _onSelectionChanged,
                 ),
               ),
@@ -150,23 +121,5 @@ class _DatePickerPageState extends AuthRequiredState<DatePickerPage> {
     });
   }
 
-  //  void _onSubmit(DateRangePickerSelectionChangedArgs args) {
-  //   final userId = Supabase.instance.client.auth.user()?.id;
-
-  //   for (int i = 0; i < args.value.length; i++ ) {
-  //     final insertRes = await Supabase.instance.client
-  //           .from('availabilities')
-  //           .insert({
-  //         'date': args.value[i],
-  //         'outing_id': widget.outing,
-  //         'profile_id': userId,
-  //       }).execute();
-  //       // Navigator.of(context).push(
-  //       //   MaterialPageRoute(builder: (context) {
-  //       //     return newAddUserPage(room: widget.room);
-  //       //   }),
-  //       // );
-  //   }
-  // }
 
 }

@@ -6,17 +6,11 @@ import '/widgets/widgets.dart';
 import 'package:bestie_vibes/components/auth_required_state.dart';
 
 class newGroupTitle extends StatefulWidget {
-  //static const String routeName = '/newouting';
 
   const newGroupTitle({Key? key, required this.room}) : super(key: key);
   final Room room;
 
-  // static Route route() {
-  //   return MaterialPageRoute(
-  //     builder: (_) => newGroupTitle(),
-  //     settings: RouteSettings(name: routeName),
-  //   );
-  // }
+  
 
   @override
   _newGroupTitleState createState() => _newGroupTitleState();
@@ -37,9 +31,7 @@ class _newGroupTitleState extends AuthRequiredState<newGroupTitle> {
           title: 'GROUP NAME',
         ),
         floatingActionButton: FloatingActionButton.extended(
-            // onPressed: () {
-            //   Navigator.pushNamed(context, '/swipe');
-            // },
+          
             onPressed: () async {
 
               final res = await Supabase.instance.client
@@ -66,21 +58,7 @@ class _newGroupTitleState extends AuthRequiredState<newGroupTitle> {
                 controller: _titleController,
                 decoration: const InputDecoration(labelText: 'Group Name'),
               ),
-              // ElevatedButton(
-              //   onPressed: () {},
-              //   child: Text('Search'))
-              // TextButton(
-              //     onPressed: () async {
-              //       final res = await Supabase.instance.client
-              //           .from('rooms')
-              //           .update({
-              //             'name': _titleController.text,
-              //           })
-              //           .eq('room_id', widget.room.room_id)
-              //           .execute();
-              //       //Navigator.of(context).pop();
-              //     },
-              //     child: const Text('Save'))
+    
             ],
           ),
         ));

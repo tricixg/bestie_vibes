@@ -1,13 +1,11 @@
 import 'package:bestie_vibes/models/room_model.dart';
 import 'package:bestie_vibes/pages/new%20group/new_group_title.dart';
 import 'package:bestie_vibes/pages/pages.dart';
-import 'package:bestie_vibes/widgets/room_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../../models/models.dart';
 import '/widgets/widgets.dart';
-import 'package:bestie_vibes/components/auth_required_state.dart';
 
 class RoomPage extends StatefulWidget {
   static const String routeName = '/rooms';
@@ -49,13 +47,7 @@ class _RoomPageState extends SupabaseAuthState<RoomPage> {
         },
         child: const Icon(Icons.add),
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   // onPressed: () {
-      //   //   Navigator.pushNamed(context, '/newouting');
-      //   // },
-      //   backgroundColor: Color(0xFFFD6974),
-      //   child: const Icon(Icons.add),
-      // ),
+
       appBar: CustomAppBar(
         title: 'GROUPS',
       ),
@@ -85,16 +77,6 @@ class _RoomPageState extends SupabaseAuthState<RoomPage> {
               itemBuilder: (context, index) {
                 final room = rooms[index];
                 return roomCard(room: room);
-                // return ListTile(
-                //   onTap: () {
-                //     Navigator.of(context).push(
-                //       MaterialPageRoute(builder: (context) {
-                //         return ChatRoomPage(room: room);
-                //       }),
-                //     );
-                //   },
-                //   title: Text(room.name),
-                // );
               },
             );
           }),

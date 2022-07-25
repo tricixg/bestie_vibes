@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -38,11 +37,7 @@ class roomCard extends StatelessWidget {
           children: <Widget>[
             Row(
               children: <Widget>[
-                // CircleAvatar(
-                //   radius: 35.0,
-                //   backgroundImage: NetworkImage(room.imageUrl[0]),
-                // ),
-                // SizedBox(width: 8.0),
+        
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -57,18 +52,7 @@ class roomCard extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 5.0),
-                    // Container(
-                    //   width: MediaQuery.of(context).size.width * 0.45,
-                    //   child: Text(
-                    //     room.text,
-                    //     style: TextStyle(
-                    //       color: Colors.blueGrey,
-                    //       fontSize: 14.0,
-                    //       fontWeight: FontWeight.w600,
-                    //     ),
-                    //     overflow: TextOverflow.ellipsis,
-                    //   ),
-                    // ),
+           
                   ],
                 ),
               ],
@@ -84,25 +68,7 @@ class roomCard extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 5.0),
-                // chat.unread
-                //     ? Container(
-                //         width: 40.0,
-                //         height: 20.0,
-                //         decoration: BoxDecoration(
-                //           color: Theme.of(context).primaryColor,
-                //           borderRadius: BorderRadius.circular(30.0),
-                //         ),
-                //         alignment: Alignment.center,
-                //         child: Text(
-                //           'NEW',
-                //           style: TextStyle(
-                //             color: Colors.white,
-                //             fontSize: 12.0,
-                //             fontWeight: FontWeight.bold,
-                //           ),
-                //         ),
-                //       )
-                //     : Text(''),
+ 
               ],
             ),
           ],

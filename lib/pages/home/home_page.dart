@@ -1,10 +1,8 @@
-import 'package:bestie_vibes/pages/old/oldgroup_page.dart';
 import 'package:bestie_vibes/pages/pages.dart';
 import 'package:bestie_vibes/pages/home/room_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:bestie_vibes/components/auth_state.dart';
-import 'package:bestie_vibes/widgets/widgets.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 class HomePage extends StatefulWidget {
@@ -62,33 +60,6 @@ class _HomePageState extends AuthState<HomePage> {
                   ]),
             ),
           ),
-
-        // Column(children: [
-        //   Groupp(),
-        // ],)
-        // Column(children: <Widget>[
-        //   // PageSelector(),
-        //   Expanded(
-        //       child: Container(
-        //           decoration: BoxDecoration(
-        //     color: Color.fromARGB(255, 252, 221, 221),
-        //     borderRadius: BorderRadius.only(
-        //     //  topLeft: Radius.circular(30.0),
-        //       topRight: Radius.circular(30.0),
-        //     ),
-        //   ),
-        //       child: 
-        //       Column(
-        //         children: <Widget>[
-                  //Groupp(),
-                  // Individuals(),
-
-      //           ],
-      //         ),
-      //       ),
-      //     ),
-      //   ],
-      // ),
     );
   }
 }

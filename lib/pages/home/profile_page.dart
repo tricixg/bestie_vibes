@@ -87,7 +87,6 @@ class _ProfilePageState extends AuthRequiredState<ProfilePage> {
     if (error != null) {
       context.showErrorSnackBar(message: error.message);
     }
-    //Navigator.of(context).pushReplacementNamed('/login');
   }
 
   /// Called when image has been uploaded to Supabase storage from within Avatar widget

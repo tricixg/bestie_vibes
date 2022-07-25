@@ -15,12 +15,6 @@ class SwipePage extends StatefulWidget {
   const SwipePage({Key? key, required this.outing}) : super(key: key);
   final Outing outing;
 
-  // static Route route() {
-  //   return MaterialPageRoute(
-  //     builder: (_) => SwipePage(),
-  //     settings: RouteSettings(name: routeName),
-  //   );
-  // }
 
   @override
   _SwipePageState createState() => _SwipePageState();
@@ -223,12 +217,6 @@ Widget _buildSwipeView(List<Activity> activity, context, Outing outing) {
     ),
   );
 
-  // return ListView.builder(
-  //   itemBuilder: (ctx, idx) {
-  //     return ActCard(activity[idx]);
-  //   },
-  //   itemCount: activity.length,
-  // );
 }
 
 Widget _buildLoadingScreen() {

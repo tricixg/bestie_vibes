@@ -1,7 +1,6 @@
 import 'package:bestie_vibes/pages/memories/memory_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../../models/models.dart';
 import '../pages.dart';
@@ -14,12 +13,7 @@ class ResultsPage extends StatefulWidget {
       : super(key: key);
   final Outing outing;
   final Room room;
-  // static Route route() {
-  //   return MaterialPageRoute(
-  //     builder: (_) => ResultsPage(),
-  //     settings: RouteSettings(name: routeName),
-  //   );
-  // }
+
 
   @override
   _ResultsPageState createState() => _ResultsPageState();

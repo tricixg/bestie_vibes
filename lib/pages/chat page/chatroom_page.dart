@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:bestie_vibes/pages/home/room_page.dart';
 import 'package:bestie_vibes/pages/pages.dart';
 import 'package:bestie_vibes/widgets/outing_card.dart';
 import 'package:flutter/cupertino.dart';
@@ -16,13 +15,6 @@ class ChatRoomPage extends StatefulWidget {
   const ChatRoomPage({Key? key, required this.room}) : super(key: key);
 
   final Room room;
-
-  // static Route route() {
-  //   return MaterialPageRoute(
-  //     builder: (_) => ChatRoomPage(roomid: ),
-  //     settings: RouteSettings(name: routeName),
-  //   );
-  // }
 
   @override
   _ChatRoomPageState createState() => _ChatRoomPageState();
@@ -76,23 +68,12 @@ class _ChatRoomPageState extends AuthRequiredState<ChatRoomPage> {
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: FloatingActionButton(
           onPressed: () async {
-            // final res = await Supabase.instance.client
-            //     .rpc('create_outing', params: {'room_id': '${widget.room.id}'}).execute();
-            // final data = res.data;
-            // final error = res.error;
-            // if (error != null) {
-            //   ScaffoldMessenger.of(context)
-            //       .showSnackBar(SnackBar(content: Text(error.message)));
-            //   return;
-            // }
-            // final outing = Outing.fromMap(data);
 
             Navigator.of(context).push(
               MaterialPageRoute(builder: (context) {
                 return newOutingTitle(room: widget.room);
               }),
             );
-            //Navigator.pushNamed(context, '/swipe');
           },
           backgroundColor: Color(0xFFFD6974),
           child: const Icon(Icons.add),
@@ -112,19 +93,7 @@ class _ChatRoomPageState extends AuthRequiredState<ChatRoomPage> {
           elevation: 0,
           title: Row(
             children: [
-              // Expanded(
-              // child:
-              // Image.asset(
-              //   'lib/assets/images/main.png',
-              //   height: 50,
-              // ),
-              // SizedBox(
-              //   width: 20,
-              // ),
-              // ),
-              // Expanded(
-              // flex: 2,
-              // child:
+  
               TextButton(
                 onPressed: () {
                   showDialog(
@@ -144,7 +113,7 @@ class _ChatRoomPageState extends AuthRequiredState<ChatRoomPage> {
                       ),
                 ),
               ),
-              //  )
+              
             ],
           ),
           actions: [
@@ -157,16 +126,7 @@ class _ChatRoomPageState extends AuthRequiredState<ChatRoomPage> {
                 );
               },
               icon: Icon(CupertinoIcons.person_2_fill, color: Colors.pink[200]),
-              // label: Text('Add User'),
-
-              // onPressed: () {
-              //   showDialog(
-              //       context: context,
-              //       builder: (context) {
-              //         return InviteDialog(roomId: widget.room.room_id);
-              //       });
-              // },
-              //child: const Text('Invite')
+           
             ),
           ],
         ),
@@ -197,7 +157,6 @@ class _ChatRoomPageState extends AuthRequiredState<ChatRoomPage> {
                       if (!snapshot.hasData) {
                         return Center(
                           child: CircularProgressIndicator(),
-                          // Text('loading...'),
                         );
                       }
                       final outings = snapshot.data!;
@@ -213,16 +172,7 @@ class _ChatRoomPageState extends AuthRequiredState<ChatRoomPage> {
                         itemBuilder: (context, index) {
                           final outing = outings[index];
                           return outingCard(outing: outing, room: widget.room,);
-                          //return ListTile(
-                            // onTap: () {
-                            //   Navigator.of(context).push(
-                            //     MaterialPageRoute(builder: (context) {
-                            //       return ChatRoomPage(room: room);
-                            //     }),
-                            //   );
-                            // },
-                            //title: Text(outing.name),
-                          //);
+                       
                         },
                       );
                     }),
