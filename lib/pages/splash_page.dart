@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:bestie_vibes/components/auth_state.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+import '../utils/constants.dart';
+
 class SplashPage extends StatefulWidget {
   static const String routeName = '/splash';
   const SplashPage({Key? key}) : super(key: key);
@@ -19,6 +21,8 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends AuthState<SplashPage> {
+  bool _newUser = true;
+
   @override
   void initState() {
     recoverSupabaseSession();
@@ -32,7 +36,7 @@ class _SplashPageState extends AuthState<SplashPage> {
     );
   }
 
-   @override
+  @override
   void onAuthenticated(Session session) {
     Navigator.pushAndRemoveUntil(
         context,
@@ -57,4 +61,6 @@ class _SplashPageState extends AuthState<SplashPage> {
         MaterialPageRoute(builder: (context) => const LoginPage()),
         (route) => false);
   }
-} 
+
+
+}

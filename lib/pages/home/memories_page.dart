@@ -3,6 +3,7 @@ import 'package:bestie_vibes/pages/memories/memory_page.dart';
 import 'package:bestie_vibes/widgets/memory_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import '../../utils/constants.dart';
 import '/widgets/widgets.dart';
 import 'package:bestie_vibes/components/auth_required_state.dart';
@@ -53,14 +54,14 @@ class _MemoriesPageState extends AuthRequiredState<MemoriesPage> {
                 switch (snapshot.connectionState) {
                   case ConnectionState.done:
                     List<Meeting> _getDataSource() {
-                      final List<Meeting> meetings = <Meeting>[];
+                      final List<Meeting> meeting = <Meeting>[];
                       final DateTime today = DateTime.now();
                       final DateTime startTime =
                           DateTime(today.year, today.month, today.day, 9, 0, 0);
                       final DateTime endTime =
                           startTime.add(const Duration(hours: 2));
                       for (int i = 0; i < outings.length; i++) {
-                        meetings.add(Meeting(
+                        meeting.add(Meeting(
                             outings[i].name,
                             outings[i].date ?? DateTime(0000),
                             outings[i].date ?? DateTime(0000),
@@ -68,7 +69,7 @@ class _MemoriesPageState extends AuthRequiredState<MemoriesPage> {
                             false,
                             outings[i]));
                       }
-                      return meetings;
+                      return meeting;
                     }
 
                     return Expanded(
@@ -138,7 +139,7 @@ class _MemoriesPageState extends AuthRequiredState<MemoriesPage> {
   }
 
   Future<List<Outing>> getOutings() async {
-    final response = await supabase.from('outings').select().execute();
+    final response = await supabase.from('outings:creator_id=eq.${Supabase.instance.client.auth.user()?.id}').select().execute();
     final error = response.error;
     if (error != null && response.status != 406) {
       context.showErrorSnackBar(message: error.message);
